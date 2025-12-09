@@ -1,59 +1,50 @@
 ---
-title: "Worklog Tuần 11"
-date: "`r Sys.Date()`"
-weight: 2
+title: "Week 11 Worklog"
+date: 2025-11-18
+weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Week 11 Objectives:
 
-### Mục tiêu tuần 11:
+* Hiểu sâu hơn về mô hình **High Availability (HA)** trong hệ thống cloud.
+* Thiết kế và vận hành **kiến trúc web nhiều tầng (multi-tier)**.
+* Làm quen và so sánh các loại **Elastic Load Balancer** (ALB, NLB, CLB).
+* Triển khai cơ chế **backup, replication & disaster recovery** cho ứng dụng.
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+---
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Weekly Task Breakdown:
 
+| Day | Task                                                                                                                           | Start | Done | References |
+|---|----------------------------------------------------------------------------------------------------------------------------------|-------|------|------------|
+| 1  | - Tổng quan HA trong cloud <br> - Khái niệm fault tolerance, resilience <br> - Nghiên cứu Reliability Pillar trong Well-Architected | 18/11/2025 | 18/11/2025 | AWS Well-Architected Docs |
+| 2  | - Học ELB chi tiết <br> - Phân biệt ALB, NLB, CLB và use case từng loại <br> - Tạo thử Application Load Balancer                 | 19/11/2025 | 19/11/2025 | AWS ELB Service Guide |
+| 3  | - Thiết kế kiến trúc 3-tier Web → App → DB <br> - Cấu hình load balancing Multi-AZ <br> - Xây môi trường demo nhiều lớp          | 20/11/2025 | 20/11/2025 | AWS Multi-Tier Architecture Notes |
+| 4  | - Triển khai **backup & restore** cho RDS, EBS <br> - Thử nghiệm cross-region replication <br> - Lập kế hoạch DR Strategy        | 21/11/2025 | 21/11/2025 | AWS DR Whitepaper |
+| 5  | - **Lab tổng hợp:** <br> + Build HA Web App trên AWS <br> + ALB + Auto Scaling hoạt động ổn định <br> + Multi-AZ RDS + Read Replica <br> + Test failover DR scenario | 22/11/2025 | 22/11/2025 | FCJ Hands-on Workshop |
 
-### Kết quả đạt được tuần 11:
+---
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Week 11 Outcomes:
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Nắm rõ kiến trúc **High Availability & Fault Tolerant** trong thực tế.
+* Tự cấu hình và thử nghiệm các loại **Elastic Load Balancer**.
+* Hoàn thiện mô hình 3 lớp với khả năng mở rộng và chống lỗi.
+* Xây dựng kế hoạch DR & sao lưu dữ liệu an toàn.
+* Tạo được ứng dụng hoạt động bền vững khi xảy ra sự cố hệ thống.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+---
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+### Summary:
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+Kết thúc tuần này, tôi đã:
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+* Biết xây dựng hạ tầng web với HA đúng chuẩn AWS.
+* Vận hành Application Load Balancer để phân phối traffic linh hoạt.
+* Tạo kiến trúc web multi-tier có khả năng scale và multi-AZ.
+* Cài đặt backup automation và cơ chế khôi phục sự cố (DR).
+* Kiểm tra failover thực tế giúp hệ thống sẵn sàng chạy production.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+---

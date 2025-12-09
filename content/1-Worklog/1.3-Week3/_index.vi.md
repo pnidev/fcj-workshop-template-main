@@ -1,59 +1,50 @@
 ---
-title: "Worklog Tuần 3"
-date: "`r Sys.Date()`"
-weight: 1
+title: "Week 3 Worklog"
+date: 2025-09-23
+weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 3:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hiểu rõ cơ chế hoạt động của **Amazon EC2** và các loại instance.
+* Biết cách triển khai, cấu hình và truy cập **EC2 trong VPC** đã tạo.
+* Tìm hiểu về **IAM Role gán cho EC2** để ứng dụng truy cập dịch vụ AWS an toàn.
+* Trải nghiệm môi trường lập trình trực tiếp trên mây thông qua **AWS Cloud9**.
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+---
 
+### Công việc thực hiện trong tuần:
 
-### Kết quả đạt được tuần 3:
+| Ngày | Nhiệm vụ                                                                                                         | Bắt đầu    | Hoàn thành      | Tài liệu                         |
+|---|--------------------------------------------------------------------------------------------------------------------|------------|-----------------|----------------------------------|
+| 1  | - Tìm hiểu khái niệm **EC2** <br> - Phân loại instance theo nhu cầu CPU/RAM <br> - Làm quen với AMI và mục đích sử dụng | 23/09/2025 | 23/09/2025      | https://000003.awsstudygroup.com/vi/ |
+| 2  | - Tạo instance EC2 đầu tiên <br> - Cấu hình Security Group ports (SSH/HTTP) <br> - SSH kết nối vào server           | 24/09/2025 | 24/09/2025      | https://000003.awsstudygroup.com/vi/ |
+| 3  | - Tạo **IAM Role** truy cập S3 <br> - Gán Role cho EC2 thay vì dùng access key <br> - Kiểm tra quyền truy cập S3 trên máy chủ | 25/09/2025 | 25/09/2025 | https://000048.awsstudygroup.com/vi/ |
+| 4  | - Tạo workspace với **AWS Cloud9** <br> - Làm quen UI, terminal, editor <br> - Chạy thử code nhỏ (Python/NodeJS)    | 26/09/2025 | 26/09/2025      | https://000049.awsstudygroup.com/vi/ |
+| 5  | - **Mini Lab**: <br> + EC2 + IAM Role truy cập S3 <br> + Deploy web app mẫu trên Cloud9 <br> + Thực hành Stop/Terminate đúng quy trình | 27/09/2025 | 27/09/2025 | FCJ Internal Docs, AWS Blogs |
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+---
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+### Kết quả đạt được:
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Hiểu nguyên lý hoạt động của **EC2**, AMI và sự khác nhau giữa các loại instance.
+* Tự tay tạo, SSH truy cập và điều khiển EC2 như một máy chủ thật.
+* Cấu hình quyền truy cập **S3 bằng IAM Role** mà không cần dùng secret keys.
+* Làm quen với **Cloud9** – viết code, deploy cơ bản ngay trên nền tảng AWS.
+* Thành thạo thao tác quản lý vòng đời EC2: chạy – dừng – xoá tài nguyên tiết kiệm phí.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+---
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+### Tổng kết:
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+Sau tuần 3, tôi đã có thể:
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Triển khai EC2 trong VPC và thiết lập bảo mật thông qua Security Group.
+* Gán IAM Role giúp máy chủ truy cập dịch vụ AWS một cách an toàn.
+* Tự kết nối vào server để cấu hình, chạy ứng dụng và quản lý tài nguyên.
+* Sử dụng Cloud9 như IDE chính cho lập trình backend và deploy thử nghiệm.
+* Nhận thức rõ hơn về chi phí EC2 và cách tối ưu để tránh bị tính phí ngoài ý muốn.
 
-
+---

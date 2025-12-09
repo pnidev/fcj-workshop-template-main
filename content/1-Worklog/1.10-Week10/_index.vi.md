@@ -1,59 +1,50 @@
 ---
-title: "Worklog Tuần 10"
-date: "`r Sys.Date()`"
-weight: 2
+title: "Week 10 Worklog"
+date: 2025-11-11
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Week 10 Objectives:
 
-### Mục tiêu tuần 10:
+* Nắm vững mô hình **kết nối Active Directory trong môi trường Hybrid**.
+* Triển khai liên thông giữa **AWS Managed Microsoft AD và hệ thống AD nội bộ**.
+* Tìm hiểu và sử dụng **AD Connector & Simple AD** trong các tình huống thực tế.
+* Thực hành xử lý lỗi, giám sát và tối ưu hệ thống directory.
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+---
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Workload trong tuần:
 
+| Day | Task                                                                                                                      | Start | Done | Reference |
+|---|-----------------------------------------------------------------------------------------------------------------------------|-------|------|-----------|
+| 1  | - Ôn tập kiến trúc **Hybrid Active Directory** <br> - Hiểu cơ chế Trust giữa Domain <br> - Thiết lập mô hình Trust cơ bản  | 11/11/2025 | 11/11/2025 | AWS Hybrid AD Docs |
+| 2  | - Nghiên cứu **AD Connector** <br> - So sánh **Managed AD – AD Connector – Simple AD** <br> - Kết nối thử với AD nội bộ     | 12/11/2025 | 12/11/2025 | AWS Directory Service Overview |
+| 3  | - Cấu hình **Cross-domain Auth** <br> - Tích hợp đăng nhập tập trung (SSO) <br> - Liên kết với AWS WorkSpaces               | 13/11/2025 | 13/11/2025 | AWS SSO Docs |
+| 4  | - Thực hành **xử lý lỗi directory** <br> - Theo dõi trạng thái domain, replication <br> - Thiết lập cơ chế backup & rollback | 14/11/2025 | 14/11/2025 | AWS Managed AD Best Practices |
+| 5  | - **Mini lab tổng kết:** <br> + Triển khai Hybrid AD hoàn chỉnh <br> + Thiết lập trust hai chiều <br> + Test auth & SSO <br> + Tổng hợp use case thực tế | 15/11/2025 | 15/11/2025 | AWS Enterprise Architecture Notes |
 
-### Kết quả đạt được tuần 10:
+---
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Week 10 Outcomes:
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Nắm chắc nguyên tắc vận hành **Hybrid Directory Infrastructure**.
+* Tự cấu hình **Domain Trust** giữa AWS và môi trường on-premises.
+* Hiểu rõ khi nào dùng Managed AD, AD Connector hoặc Simple AD.
+* Tích hợp xác thực tập trung (SSO) cho ứng dụng trong AWS.
+* Có khả năng giám sát, debug và khôi phục directory khi phát sinh lỗi.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+---
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+### Summary:
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+Đến cuối tuần 10, tôi đã có thể:
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+* Thiết kế mô hình Hybrid AD phục vụ bài toán doanh nghiệp.
+* Kết nối Active Directory on-premises với AWS Directory Service.
+* Triển khai SSO và xác thực liên domain cho ứng dụng.
+* Lựa chọn dịch vụ Directory phù hợp với từng yêu cầu thực tế.
+* Theo dõi, bảo trì và xử lý tình huống sự cố trong môi trường sản xuất.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+---

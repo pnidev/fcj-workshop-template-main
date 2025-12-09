@@ -1,57 +1,50 @@
 ---
 title: "Week 3 Worklog"
-date: "`r Sys.Date()`"
-weight: 1
+date: 2025-09-23
+weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 3 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Gain a clear understanding of how **Amazon EC2** works along with its instance families.
+* Learn how to deploy, configure, and access **EC2 instances inside a VPC**.
+* Explore **IAM Roles for EC2** as a secure way to allow applications to access AWS services.
+* Experience cloud-based development using **AWS Cloud9 IDE**.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+---
 
+### Weekly Work Summary:
 
-### Week 3 Achievements:
+| Day | Tasks                                                                                                                         | Start       | Completed       | References                                          |
+|---|---------------------------------------------------------------------------------------------------------------------------------|-------------|-----------------|-----------------------------------------------------|
+| 1  | - Introduction to **EC2** <br> - Learn instance classes based on CPU/RAM needs <br> - Understand AMIs and their use cases      | 23/09/2025  | 23/09/2025      | https://000003.awsstudygroup.com/vi/               |
+| 2  | - Launch first EC2 instance <br> - Configure Security Groups for SSH/HTTP access <br> - Connect to server via SSH              | 24/09/2025  | 24/09/2025      | https://000003.awsstudygroup.com/vi/               |
+| 3  | - Create **IAM Role** with S3 permissions <br> - Attach role to EC2 (no access keys needed) <br> - Validate S3 access on server | 25/09/2025  | 25/09/2025      | https://000048.awsstudygroup.com/vi/               |
+| 4  | - Set up workspace using **AWS Cloud9** <br> - Explore IDE interface, terminal, file management <br> - Run small code snippets | 26/09/2025  | 26/09/2025      | https://000049.awsstudygroup.com/vi/               |
+| 5  | - **Mini Lab:** <br> + EC2 with IAM Role to access S3 <br> + Deploy sample web application via Cloud9 <br> + Practice stop/terminate for cost control | 27/09/2025 | 27/09/2025 | FCJ Internal Docs, AWS Blogs |
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+---
 
-* Successfully created and configured an AWS Free Tier account.
+### Week 3 Outcomes:
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Gained a strong foundation in **EC2 architecture, AMI usage, and instance types**.
+* Successfully launched and accessed EC2 through SSH like a real remote server.
+* Implemented **IAM Role permissions for S3** without using static access keys.
+* Became familiar with **Cloud9** for code execution and basic deployments.
+* Practiced full EC2 lifecycle management — run, configure, stop, terminate for cost optimization.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+---
 
-* Used AWS CLI to perform basic operations such as:
+### Summary:
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+By the end of Week 3, I was able to:
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Deploy EC2 instances securely inside a VPC using Security Groups.
+* Assign IAM Roles to instances for safe AWS resource access.
+* Connect to EC2 servers and manage applications directly via SSH.
+* Use Cloud9 as a cloud-native IDE for development and testing.
+* Understand EC2 costing and avoid charges by proper resource shutdown.
+
+---

@@ -1,59 +1,50 @@
 ---
-title: "Worklog Tuần 8"
-date: "`r Sys.Date()`"
-weight: 1
+title: "Week 8 Worklog"
+date: 2025-10-28
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 8:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu hệ thống **Amazon Route 53** và cách quản lý DNS trong môi trường cloud.
+* Làm quen với **Amazon CloudFront** – dịch vụ CDN giúp phân phối nội dung nhanh hơn.
+* Nắm được cơ chế hoạt động của **Lambda@Edge** để xử lý logic ngay tại Edge Location.
+* Xây dựng mô hình phân phối nội dung toàn cầu với độ trễ thấp và độ tin cậy cao.
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+---
 
+### Công việc thực hiện trong tuần:
 
-### Kết quả đạt được tuần 8:
+| Ngày | Nhiệm vụ                                                                                                                | Bắt đầu     | Hoàn thành      | Tài liệu tham khảo              |
+|---|----------------------------------------------------------------------------------------------------------------------------|-------------|-----------------|---------------------------------|
+| 1  | - Tổng quan **Route 53** <br> - Ôn lại khái niệm DNS, bản ghi A, CNAME, alias <br> - Tạo hosted zone và record đơn giản   | 28/10/2025  | 28/10/2025      | https://000010.awsstudygroup.com/vi/ |
+| 2  | - Áp dụng các routing policy: Simple, Weighted, Failover <br> - Cài đặt Health Check để thực hiện dự phòng DNS           | 29/10/2025  | 29/10/2025      | https://000010.awsstudygroup.com/vi/2-prerequiste/ |
+| 3  | - Làm quen **CloudFront CDN** <br> - Tìm hiểu Edge Location & Cache TTL <br> - Tạo CloudFront Distribution đầu tiên       | 30/10/2025  | 30/10/2025      | https://000094.awsstudygroup.com/vi/ |
+| 4  | - Kết nối CloudFront với **S3 origin** <br> - Gán tên miền riêng thông qua Route 53 <br> - Cấp chứng chỉ SSL bằng ACM     | 31/10/2025  | 31/10/2025      | https://000094.awsstudygroup.com/vi/1.-cloud-front-với-s3/ |
+| 5  | - Tìm hiểu **Lambda@Edge** <br> - Thực hành: Tạo CloudFront + domain riêng + SSL <br> - Triển khai Lambda@Edge xử lý request/response <br> - Đánh giá tốc độ và khả năng phân phối của CDN | 01/11/2025 | 01/11/2025      | https://000130.awsstudygroup.com/vi/ |
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+---
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+### Kết quả đạt được:
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Hiểu cách quản lý DNS, bản ghi, Hosted Zone bằng Route 53.
+* Thiết lập Routing Policies phục vụ high-availability và failover.
+* Triển khai CloudFront thành công để phân phối nội dung toàn cầu.
+* Ứng dụng Lambda@Edge để xử lý logic ngay tại biên mạng.
+* Kết hợp Route 53 + CloudFront + SSL + Edge Computing thành một CDN hoàn chỉnh.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+---
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+### Tổng kết:
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+Kết thúc tuần 8, tôi đã có thể:
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Tối ưu phân phối nội dung với Route 53 và CloudFront.
+* Tạo chứng chỉ SSL/TLS bằng ACM và cấu hình cho domain tùy chỉnh.
+* Sử dụng Lambda@Edge để tùy biến phản hồi người dùng theo request headers/path.
+* Xây dựng mô hình CDN giảm độ trễ truy cập cho người dùng ở nhiều khu vực khác nhau.
+* Có cái nhìn tổng quan về kiến trúc global scale phục vụ web/app real-time.
 
-
+---

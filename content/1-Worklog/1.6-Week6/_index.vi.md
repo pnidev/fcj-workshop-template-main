@@ -1,58 +1,50 @@
 ---
-title: "Worklog Tuần 6"
-date: "`r Sys.Date()`"
-weight: 1
+title: "Week 6 Worklog"
+date: 2025-10-14
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 6:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Làm quen với **Amazon ElastiCache** và vai trò của cache trong hệ thống phân tán.
+* Hiểu cách ứng dụng Redis/Memcached để tăng tốc độ truy vấn dữ liệu.
+* Tích hợp thử nghiệm ElastiCache với các dịch vụ đã học tuần trước.
+* Ôn tập lại kiến thức Database (RDS + DynamoDB) để kết hợp với Cache phục vụ bài toán hiệu năng.
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+---
 
+### Nhiệm vụ thực hiện trong tuần:
 
-### Kết quả đạt được tuần 6:
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+| Ngày | Công việc                                                                                                                | Bắt đầu     | Hoàn thành      | Tài liệu tham khảo               |
+|---|----------------------------------------------------------------------------------------------------------------------------|-------------|-----------------|----------------------------------|
+| 1  | - Tổng quan **ElastiCache** <br> - Sự khác nhau giữa Redis & Memcached <br> - Tư duy cache-first và cache-aside pattern   | 14/10/2025 | 14/10/2025      | https://000061.awsstudygroup.com/vi/1-introduce/ |
+| 2  | - Khởi tạo **Redis Cluster** trên ElastiCache <br> - Cấu hình Security Group kết nối VPC <br> - Kết nối thử từ EC2         | 15/10/2025 | 15/10/2025      | https://000061.awsstudygroup.com/vi/3-amazonelasticacheforredis/3.4-grantaccesstocluster/ |
+| 3  | - Thêm lớp Cache vào ứng dụng <br> - Cache Invalidation (TTL, manual invalidation) <br> - Theo dõi chỉ số hit/miss         | 16/10/2025 | 16/10/2025      | AWS Caching Guidelines, FCJ Notes |
+| 4  | - **Bài lab tích hợp thực tế:** <br>  + Kết nối RDS + Redis <br>  + Lưu session & cache query <br>  + Test tốc độ phản hồi | 17/10/2025 | 17/10/2025      | AWS Architecture Labs |
+| 5  | - **Mini practice:** <br>  + Deploy hệ thống 3-tier (EC2 → Redis → RDS) <br>  + Benchmark tốc độ có/không dùng cache <br>  + Review lại kiến trúc DB & tối ưu chi phí <br>  + Thu dọn tài nguyên tránh phát sinh phí | 18/10/2025 | 18/10/2025 | Well-Architected Framework, FCJ Session |
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+---
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+### Kết quả đạt được:
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Nắm được cách hoạt động của **In-memory Cache** và lý do hệ thống lớn luôn cần Redis.
+* Phân biệt rõ ràng giữa **Redis** (session/state cache) và **Memcached** (memory-key store đơn giản).
+* Tự xây dựng **Caching Layer** để giảm số lượng truy vấn DB.
+* Kết hợp ElastiCache + RDS → tốc độ truy vấn cải thiện đáng kể.
+* Hoàn thiện demo hệ thống web có khả năng scale và tối ưu tải.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+---
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+### Tổng kết:
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+Kết thúc tuần 6, tôi đã có thể:
 
+* Tự tạo và kết nối ElastiCache Cluster trong VPC riêng.
+* Thiết kế cơ chế cache hợp lý cho API và database truy vấn thường xuyên.
+* Tích hợp Redis vào ứng dụng để lưu session/login state, query caching.
+* Đo đạc hiệu năng và đánh giá mức giảm tải khi sử dụng cache.
+* Có cái nhìn rõ ràng hơn về việc kết hợp **RDS + DynamoDB + Redis** trong kiến trúc thực tế.
 
+---

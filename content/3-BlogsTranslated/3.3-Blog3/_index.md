@@ -5,122 +5,255 @@ weight: 1
 chapter: false
 pre: " <b> 3.3. </b> "
 ---
+
 {{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
+⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
 {{% /notice %}}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+# Validating event payloads with Powertools for AWS Lambda (TypeScript)
+In this post, learn how Powertools for AWS Lambda (TypeScript) with the new Parser utility can help you validate payloads easily and make your Lambda function more resilient.  
+Validating input payloads is an important aspect of building secure and reliable applications. It ensures that data received by an application can smoothly handle unexpected or malicious inputs and prevent harmful downstream processing. When writing AWS Lambda functions, developers need to validate and verify the payload, while ensuring that specific fields and values are correct and safe to process.
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+Powertools for AWS Lambda is a developer toolkit available for Python, NodeJS/TypeScript, Java, and .NET. It helps you implement serverless best practices and increase developer velocity. Powertools for AWS Lambda (TypeScript) now introduces a new Parser utility to make it easier for developers to implement validation in their Lambda functions.
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+## Why payload validation matters
+Validating payloads can help your Lambda functions become more resilient. Payloads often combine both technical and business information, which can make them harder to validate. This requires you to write validation logic inside your Lambda function code. This can range from a few if-statements to check payload values to a chain of complex validation steps based on custom business logic. You may need to separate validation of technical information in the payload, such as AWS Region, accountId, event source, from business information in the event, such as productId and payment details.
 
----
+Understanding the structure and values of the event object, as well as how to extract the relevant information, can be challenging. For example, an Amazon SQS event has a body field with a string value that can be a JSON document. Amazon EventBridge has an object in the detail field that you can read directly without further transformation. You might need to decompress, decode, transform, and validate a payload inside a specific field. Understanding these multiple transformation layers can become complex, especially if your event object is the result of multiple service invocations.
 
-## Architecture Guidance
+## Using Powertools for AWS Lambda (TypeScript) Parser Utility
+Powertools for AWS Lambda (TypeScript) is a modular library. You can selectively install features such as Logger, Tracer, Metrics, Batch Processing, Idempotency, and more. You can use Powertools for AWS Lambda in both TypeScript and JavaScript code bases. This new Parser utility simplifies validation and uses the popular validation library Zod.
 
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
+You can use the parser as a method decorator, with middyjs middleware, or manually in all NodeJS runtimes provided by Lambda.
 
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
+To use the utility, install the Powertools parser utility and Zod (<v3.x) using NPM or any package manager of your choice:
+npm install @aws-lambda-powertools/parser zod@~3
+You can define your schema using Zod. Below is an example of a simple order schema to validate events:
+import { z } from 'zod';
+const orderSchema = z.object({
+    id: z.number().positive(),
+	description: z.string(),
+	items: z.array(
+	    z.object({
+		    id: z.number().positive(),
+			quantity: z.number(),
+			description: z.string(),
+			})
+		),
+	});
+export { orderSchema };
+The following schema defines id, description, and a list of items. You can specify value types ranging from simple numeric values, narrow them down to positive or literal values, or use more complex types such as unions, arrays, or even other schemas. Zod provides a rich set of value types that you can use.
 
-**The solution architecture is now as follows:**
+Add the parser decorator to your handler function, set the schema parameter, and use this schema to parse the event object.
+import type {Context} from 'aws-lambda';
+import type {LambdaInterface} from '@aws-lambda-powertools/commons/types';
+import {parser} from '@aws-lambda-powertools/parser';
+import {z} from 'zod';
+import {Logger} from '@aws-lambda-powertools/logger';
 
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+const logger = new Logger();
 
----
+const orderSchema = z.object({
+    id: z.number().positive(),  
+	description: z.string(),  
+	items: z.array(
+	    z.object({
+		    id: z.number().positive(),
+			quantity: z.number(),
+			description: z.string(),
+		})
+	),
+});
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+type Order = z.infer<typeof orderSchema>;
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+class Lambda implements LambdaInterface {
+    @parser({schema: orderSchema})  
+	public async handler(event: Order, _context: Context): Promise<void> {
+	    // event is now typed as Order    
+		for (const item of event.items) {      
+		    logger.info('Processing item', {item});
+			// process order item from the event
+		}
+	}
+}
+	
+const myFunction = new Lambda();
 
----
+export const handler = myFunction.handler.bind(myFunction);
+Note that z.infer helps extract the Order type from the schema, which improves the development experience with autocomplete when using TypeScript. Zod parses the entire object, including nested fields, and reports all combined errors instead of only returning the first error.
 
-## Technology Choices and Communication Scope
+## Using built-in schemas for AWS services
+A more common scenario is needing to validate events from AWS Services that trigger Lambda functions, including Amazon SQS, Amazon EventBridge, and many others. To make this easier, Powertools includes pre-built schemas for AWS events that you can use.
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+To parse an incoming Amazon EventBridge event, configure the built-in schema in your parser configuration:
 
----
+import {LambdaInterface} from '@aws-lambda-powertools/commons/types';
+import {Context} from 'aws-lambda';
+import {parser} from '@aws-lambda-powertools/parser';
+import {EventBridgeSchema} from '@aws-lambda-powertools/parser/schemas';
+import type {EventBridgeEvent} from '@aws-lambda-powertools/parser/types';
 
-## The Pub/Sub Hub
+class Lambda implements LambdaInterface {  
+    @parser({schema: EventBridgeSchema})  
+	public async handler(event: EventBridgeEvent, _context: Context): Promise<void> {    
+	    // event is parsed but the detail field is not specified  
+	}
+}
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
+const myFunction = new Lambda();
 
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+export const handler = myFunction.handler.bind(myFunction);
 
----
+The event object is parsed and validated at runtime, and the EventBridgeEvent TypeScript type helps you understand the structure and access fields during development. In this example, you only parse the EventBridge event object, so the detail field can be an arbitrary object.  
+You can also extend the built-in EventBridge schema and override the detail field with your custom orderSchema:
 
-## Core Microservice
+import {LambdaInterface} from '@aws-lambda-powertools/commons/types';
+import {Context} from 'aws-lambda';
+import {parser} from '@aws-lambda-powertools/parser';
+import {EventBridgeSchema} from '@aws-lambda-powertools/parser/schemas';
+import {z} from 'zod';
 
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
+const orderSchema = z.object({  
+    id: z.number().positive(),  
+	description: z.string(),  
+	items: z.array(
+	    z.object({
+		    id: z.number().positive(),      
+			quantity: z.number(),      
+			description: z.string(),
+		}), 
+	),
+});
 
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+const eventBridgeOrderSchema = EventBridgeSchema.extend({  detail: orderSchema,});
 
----
+type EventBridgeOrder = z.infer<typeof eventBridgeOrderSchema>;
 
-## Front Door Microservice
+class Lambda implements LambdaInterface {  
+    @parser({schema: eventBridgeOrderSchema})  public async handler(event: EventBridgeOrder, _context: Context): Promise<void> {
+	    // event.detail is now parsed as orderSchema  
+	}
+}
 
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
+const myFunction = new Lambda();
 
----
+export const handler = myFunction.handler.bind(myFunction);
 
-## Staging ER7 Microservice
+The parser will validate the entire structure of the EventBridge event, including the custom business object.  
+Use .extend or other Zod schema functions to modify any field of the built-in schema and customize payload validation.
 
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
+## Using envelopes with custom schemas
+In some cases, you only need the custom part of the payload, for example the detail field of an EventBridge event or the body of SQS records. This requires you to parse the event schema manually, extract the field you need, and then parse again using a custom schema. This is complex because you must know exactly which payload field to process and how to transform and parse it.
 
----
+The Powertools Parser utility addresses this problem using Envelopes. Envelopes are schema objects with built-in logic to extract custom payloads.
 
-## New Features in the Solution
+The following is an example of EventBridgeEnvelope and how it works:
+import {LambdaInterface} from '@aws-lambda-powertools/commons/types';
+import {Context} from 'aws-lambda';
+import {parser} from '@aws-lambda-powertools/parser';
+import {EventBridgeEnvelope} from '@aws-lambda-powertools/parser/envelopes';
+import {z} from 'zod';
 
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+const orderSchema = z.object({  
+    id: z.number().positive(), 
+	description: z.string(),  
+	items: z.array(    
+	    z.object({      
+		    id: z.number().positive(),      
+			quantity: z.number(),      
+			description: z.string(),
+		}), 
+	),
+});
+
+type Order = z.infer<typeof orderSchema>;
+
+class Lambda implements LambdaInterface {  
+    @parser({schema: orderSchema, envelope: EventBridgeEnvelope})  public async handler(event: Order, _context: Context): Promise<void> {
+        // event is now typed as Order inferred from the orderSchema  
+    }
+}
+
+const myFunction = new Lambda();
+
+export const handler = myFunction.handler.bind(myFunction);
+
+By setting both the schema and the envelope, the parser utility knows how to combine both parameters, extract, and validate the custom payload from the event.  
+Powertools Parser transforms the event object according to the schema definition, allowing you to focus on the business-critical portion inside your handler function.
+
+## Safe parsing
+If the object does not match the provided Zod schema, by default the parser throws a ParserError. If you need to control validation errors and want to implement custom error handling, use the safeParse option.
+
+The following is an example of how to capture failed validations as a metric in your handler function:
+import {Logger} from "@aws-lambda-powertools/logger";
+import {LambdaInterface} from "@aws-lambda-powertools/commons/types";
+import {parser} from "@aws-lambda-powertools/parser";
+import {orderSchema} from "../app/schema";import {z} from "zod";
+import {EventBridgeEnvelope} from "@aws-lambda-powertools/parser/envelopes";
+import {Metrics, MetricUnit} from "@aws-lambda-powertools/metrics";
+import {ParsedResult, EventBridgeEvent} from "@aws-lambda-powertools/parser/types";
+
+const logger = new Logger();
+
+const metrics = new Metrics();
+
+type Order = z.infer<typeof orderSchema>;
+
+class Lambda implements LambdaInterface {  
+
+    @metrics.logMetrics() 
+	@parser({schema: orderSchema, envelope: EventBridgeEnvelope, safeParse: true})  
+	public async handler(event: ParsedResult<EventBridgeEvent, Order>, _context: unknown): Promise<void> {
+	    if (!event.success) {      
+		    // failed validation      
+			metrics.addMetric('InvalidPayload', MetricUnit.Count, 1);      
+			logger.error('Invalid payload', event.originalEvent);    
+		} else {      
+		    // successful validation      
+			for (const item of event.data.items) {        
+			    logger.info('Processing item', item);        
+				// event.data is typed as Order      
+			}   
+		}  
+	}
+}
+
+const myFunction = new Lambda();
+
+export const handler = myFunction.handler.bind(myFunction);
+
+When safeParse = true, the parser does not throw an error. Instead, it returns a modified event object with a success flag and either error or data fields depending on the validation result.  
+You can implement custom error handling, for example incrementing an InvalidPayload metric and accessing originalEvent to log the error.  
+For successful validations, you can access the data field and process the payload.  
+Note that the event object type is now ParsedResult, with EventBridgeEvent as the input and Order as the output type.
+
+## Custom validations
+Sometimes you may need more complex business rules for validation.  
+Because Parser built-in schemas are Zod objects, you can customize validation by applying .extend, .refine, .transform, and other Zod operators.
+
+Below is an example of complex rules for orderSchema:
+import {z} from 'zod';
+
+const orderSchema = z.object({
+    id: z.number().positive(),  
+	description: z.string(),  
+	items: z.array(z.object({
+	    id: z.number().positive(),    
+		quantity: z.number(),    
+		description: z.string(),  
+	})).refine((items) => items.length > 0, {
+	    message: 'Order must have at least one item',  
+	}),
+})  
+    .refine((order) => order.id > 100 && order.items.length > 100, {
+	    message:      'All orders with more than 100 items must have an id greater than 100', 
+	});
+
+Use .refine on the items field to check whether the order has at least one item. You can also combine multiple fields, such as order.id and order.items.length, to create specific rules for orders with more than 100 items. Note that .refine runs during the validation step, while .transform is applied after validation completes. This allows you to reshape the data to normalize the output.
+
+## Conclusion
+Powertools for AWS Lambda (TypeScript) introduces a new Parser utility that makes it easier to add validation to your Lambda functions.  
+By leveraging the popular validation library Zod, Powertools provides a rich set of built-in schemas for AWS service integrations such as Amazon SQS, Amazon DynamoDB, and Amazon EventBridge. Developers can use these schemas to validate event payloads and customize them to meet their business needs.
+
+Visit the documentation to learn more and join the Powertools community Discord to connect with fellow serverless enthusiasts.

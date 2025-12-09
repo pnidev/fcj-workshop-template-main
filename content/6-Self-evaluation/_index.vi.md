@@ -1,40 +1,35 @@
 ---
-title: "Tự đánh giá"
+title: "Proposal"
 date: "`r Sys.Date()`"
-weight: 6
+weight: 2
 chapter: false
-pre: " <b> 6. </b> "
+pre: " <b> 2. </b> "
 ---
+Trong thời gian thực tập tại **FCJ** AWS kéo dài từ **8/9/2025** đến **9/12/2025**, tôi được trực tiếp tham gia môi trường làm việc thực tế, vận dụng những kiến thức đã học và tiếp thu thêm nhiều quy trình mới trong doanh nghiệp.  
+Tôi đảm nhận công việc **làm game 2D endless runner với tích hợp các dịch vụ AWS**, từ đó tôi cải thiện rõ rệt về **kỹ năng lập trình, thao tác công cụ, kỹ năng teamwork, giao tiếp báo cáo tiến độ**.
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+Ngoài chuyên môn, tôi học được cách quản lý công việc, phân chia thời gian, trao đổi với mentor và phối hợp với các thành viên trong nhóm để hoàn thành mục tiêu sprint. Tôi luôn cố gắng chủ động trong công việc, tìm hiểu trước tài liệu, đặt câu hỏi khi cần và tuân thủ các quy định nội bộ.
 
-Trong suốt thời gian thực tập tại **[Tên công ty/tổ chức]** từ **[ngày bắt đầu]** đến **[ngày kết thúc]**, tôi đã có cơ hội học hỏi, rèn luyện và áp dụng kiến thức đã được trang bị tại trường vào môi trường làm việc thực tế.  
-Tôi đã tham gia **[mô tả ngắn gọn dự án hoặc công việc chính]**, qua đó cải thiện kỹ năng **[liệt kê kỹ năng: lập trình, phân tích, viết báo cáo, giao tiếp…]**.  
+Dưới đây là phần tự đánh giá mức độ phát triển bản thân trong suốt kỳ thực tập:
 
-Về tác phong, tôi luôn cố gắng hoàn thành tốt nhiệm vụ, tuân thủ nội quy, và tích cực trao đổi với đồng nghiệp để nâng cao hiệu quả công việc.
+| STT | Tiêu chí đánh giá | Mô tả | Tốt | Khá | TB |
+|---|----------------|----------------------------------------|:---:|:---:|:---:|
+| 1 | Kiến thức chuyên môn | Hiểu được quy trình, công cụ dự án, ứng dụng vào thực tế | ✅ | ☐ | ☐ |
+| 2 | Khả năng học hỏi | Tiếp thu công nghệ mới, tự nghiên cứu tương đối tốt | ☐ | ✅ | ☐ |
+| 3 | Chủ động trong công việc | Tự đề xuất nhiệm vụ, không phụ thuộc hoàn toàn vào hướng dẫn | ✅ | ☐ | ☐ |
+| 4 | Trách nhiệm | Hoàn thành task theo deadline, hạn chế lỗi phát sinh | ✅ | ☐ | ☐ |
+| 5 | Tính kỷ luật | Đôi lúc còn trễ deadline nhỏ cần cải thiện thêm | ☐ | ☐ | ✅ |
+| 6 | Tinh thần cầu tiến | Luôn hỏi thêm mentor để hoàn thiện kỹ năng | ☐ | ✅ | ☐ |
+| 7 | Giao tiếp – báo cáo | Có thể trao đổi rõ ý, nhưng cần tự tin hơn khi trình bày | ☐ | ✅ | ☐ |
+| 8 | Làm việc nhóm | Hỗ trợ đồng đội, review code và chia sẻ kiến thức | ✅ | ☐ | ☐ |
+| 9 | Tác phong – thái độ | Tôn trọng quy tắc công ty, hợp tác dễ dàng | ✅ | ☐ | ☐ |
+| 10 | Giải quyết vấn đề | Đã biết phân tích lỗi, nhưng khả năng đề xuất giải pháp còn hạn chế | ☐ | ✅ | ☐ |
+| 11 | Đóng góp cho dự án | Tham gia triển khai tính năng và ghi nhận kết quả tích cực | ✅ | ☐ | ☐ |
+| 12 | Tổng quan | Tự đánh giá quá trình thực tập khá hiệu quả và tiến bộ | ✅ | ☐ | ☐ |
 
-Để phản ánh một cách khách quan quá trình thực tập, tôi xin tự đánh giá bản thân dựa trên các tiêu chí dưới đây:
+### Những điểm cần cải thiện
+- Nâng cao tính kỷ luật để bám sát deadline hơn  
+- Tập trung phát triển tư duy phân tích lỗi & tối ưu giải pháp  
+- Rèn luyện giao tiếp khi trình bày báo cáo hoặc đề xuất ý tưởng  
 
-
-| STT | Tiêu chí                            | Mô tả                                                                                            | Tốt | Khá | Trung bình |
-| --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | --- | --- | ---------- |
-| 1   | **Kiến thức và kỹ năng chuyên môn** | Hiểu biết về ngành, áp dụng kiến thức vào thực tế, kỹ năng sử dụng công cụ, chất lượng công việc | ✅   | ☐   | ☐          |
-| 2   | **Khả năng học hỏi**                | Tiếp thu kiến thức mới, học hỏi nhanh                                                            | ☐   | ✅   | ☐          |
-| 3   | **Chủ động**                        | Tự tìm hiểu, nhận nhiệm vụ mà không chờ chỉ dẫn                                                  | ✅   | ☐   | ☐          |
-| 4   | **Tinh thần trách nhiệm**           | Hoàn thành công việc đúng hạn, đảm bảo chất lượng                                                | ✅   | ☐   | ☐          |
-| 5   | **Kỷ luật**                         | Tuân thủ giờ giấc, nội quy, quy trình làm việc                                                   | ☐   | ☐   | ✅          |
-| 6   | **Tính cầu tiến**                   | Sẵn sàng nhận feedback và cải thiện bản thân                                                     | ☐   | ✅   | ☐          |
-| 7   | **Giao tiếp**                       | Trình bày ý tưởng, báo cáo công việc rõ ràng                                                     | ☐   | ✅   | ☐          |
-| 8   | **Hợp tác nhóm**                    | Làm việc hiệu quả với đồng nghiệp, tham gia nhóm                                                 | ✅   | ☐   | ☐          |
-| 9   | **Ứng xử chuyên nghiệp**            | Tôn trọng đồng nghiệp, đối tác, môi trường làm việc                                              | ✅   | ☐   | ☐          |
-| 10  | **Tư duy giải quyết vấn đề**        | Nhận diện vấn đề, đề xuất giải pháp, sáng tạo                                                    | ☐   | ✅   | ☐          |
-| 11  | **Đóng góp vào dự án/tổ chức**      | Hiệu quả công việc, sáng kiến cải tiến, ghi nhận từ team                                         | ✅   | ☐   | ☐          |
-| 12  | **Tổng thể**                        | Đánh giá chung về toàn bộ quá trình thực tập                                                     | ✅   | ☐   | ☐          |
-
-### Cần cải thiện
-
-* Nâng cao tính kỹ luật, chấp hành nghiêm chỉnh nội quy của công ty hoặc bất kỳ trong một tổ chức nào
-* Cải thiện trong cách tư duy giải quyết vấn đề
-* Học cách giao tiếp tốt hơn trong giao tiếp hằng ngày và trong công việc, xử lý tình huống
+---

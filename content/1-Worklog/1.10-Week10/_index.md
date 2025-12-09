@@ -1,57 +1,50 @@
 ---
 title: "Week 10 Worklog"
-date: "`r Sys.Date()`"
-weight: 2
+date: 2025-11-11
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 10 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Gain solid understanding of **Hybrid Active Directory integration**.
+* Implement connectivity between **AWS Managed Microsoft AD and on-premises AD**.
+* Learn when and how to use **AD Connector & Simple AD** in real environments.
+* Practice monitoring, troubleshooting, and optimizing directory operations.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+---
 
+### Workload for the Week:
 
-### Week 10 Achievements:
+| Day | Task                                                                                                                      | Start | Done | Reference |
+|---|-----------------------------------------------------------------------------------------------------------------------------|-------|------|-----------|
+| 1  | - Review **Hybrid Active Directory** architecture <br> - Understand domain trust relationships <br> - Build a basic trust model  | 11/11/2025 | 11/11/2025 | AWS Hybrid AD Docs |
+| 2  | - Research **AD Connector** <br> - Compare **Managed AD vs AD Connector vs Simple AD** <br> - Test connectivity with on-prem AD     | 12/11/2025 | 12/11/2025 | AWS Directory Service Overview |
+| 3  | - Configure **cross-domain authentication** <br> - Enable centralized sign-in (SSO) <br> - Integrate with AWS WorkSpaces               | 13/11/2025 | 13/11/2025 | AWS SSO Docs |
+| 4  | - Practice **directory troubleshooting** <br> - Monitor domain health and replication status <br> - Configure backup and rollback processes | 14/11/2025 | 14/11/2025 | AWS Managed AD Best Practices |
+| 5  | - **Final weekly lab:** <br> + Deploy a functional Hybrid AD <br> + Configure bidirectional trust <br> + Test authentication & SSO <br> + Document real use cases | 15/11/2025 | 15/11/2025 | AWS Enterprise Architecture Notes |
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+---
 
-* Successfully created and configured an AWS Free Tier account.
+### Week 10 Outcomes:
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Built a strong understanding of **Hybrid Directory Infrastructure** behavior and architecture.
+* Successfully configured **Domain Trust** between AWS and local AD servers.
+* Learned practical selection of Managed AD, AD Connector, or Simple AD per use case.
+* Implemented centralized authentication & SSO for AWS applications.
+* Gained ability to monitor, troubleshoot, and recover directory services when failures occur.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+---
 
-* Used AWS CLI to perform basic operations such as:
+### Summary:
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+By the end of Week 10, I was able to:
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Design enterprise-use Hybrid AD architectures on AWS.
+* Connect on-prem Active Directory with AWS Directory Service securely.
+* Implement cross-domain authentication and SSO flows.
+* Select the most suitable directory service for different business scenarios.
+* Maintain, monitor, and resolve real directory issues in production-like environments.
+
+---

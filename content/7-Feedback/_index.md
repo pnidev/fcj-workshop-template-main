@@ -1,47 +1,37 @@
 ---
-title: "Sharing and Feedback"
+title: "Internship Report"
 date: "`r Sys.Date()`"
-weight: 7
+weight: 1
 chapter: false
-pre: " <b> 7. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
+# Overall Evaluation
 
-> Here, you can freely share your personal opinions about your experience participating in the First Cloud Journey program. This will help the FCJ team improve any shortcomings based on the following aspects:
+## 1. Working Environment
+The working environment at FCJ is comfortable and easy to adapt to. Members within the FCJ community are friendly, supportive, and willing to help even outside working hours. The workspace is clean and well-organized, which helps me stay focused and productive.
 
-### Overall Evaluation
+## 2. Support from Mentor / Team Admin
+My mentor provided clear guidance and thoroughly explained concepts when I encountered difficulties, while still encouraging me to explore and solve problems independently. The mentor team also assisted with procedures, shared resources and documentation, and ensured I had the tools required for my tasks. I truly appreciate their patience and the approach of helping me grow instead of giving direct solutions.
 
-**1. Working Environment**  
-The working environment is very friendly and open. FCJ members are always willing to help whenever I encounter difficulties, even outside working hours. The workspace is tidy and comfortable, helping me focus better. However, I think it would be nice to have more social gatherings or team bonding activities to strengthen relationships.
+## 3. Work Relevance to Academic Major
+The tasks assigned were closely related to the knowledge I learned at university, especially in software development workflows and data handling. Moreover, I was exposed to new technologies, helping me strengthen my fundamentals and expand my practical skills.
 
-**2. Support from Mentor / Team Admin**  
-The mentor provides very detailed guidance, explains clearly when I don’t understand, and always encourages me to ask questions. The admin team supports administrative tasks, provides necessary documents, and creates favorable conditions for me to work effectively. I especially appreciate that the mentor allows me to try and solve problems myself instead of just giving the answer.
+## 4. Learning & Skill Development Opportunities
+Throughout the internship, I enhanced my ability to manage tasks, use project support tools, and collaborate effectively in a team. My mentor also shared many real-world scenarios, helping me build a clearer vision for my future career path.
 
-**3. Relevance of Work to Academic Major**  
-The tasks I was assigned align well with the knowledge I learned at university, while also introducing me to new areas I had never encountered before. This allowed me to both strengthen my foundational knowledge and gain practical skills.
-
-**4. Learning & Skill Development Opportunities**  
-During the internship, I learned many new skills such as using project management tools, teamwork skills, and professional communication in a corporate environment. The mentor also shared valuable real-world experiences that helped me better plan my career path.
-
-**5. Company Culture & Team Spirit**  
-The company culture is very positive: everyone respects each other, works seriously but still keeps things enjoyable. When there are urgent projects, everyone works together and supports one another regardless of their position. This made me feel like a real part of the team, even as an intern.
-
-**6. Internship Policies / Benefits**  
-The company provides an internship allowance and offers flexible working hours when needed. In addition, having the opportunity to join internal training sessions is a big plus.
+## 5. Company Culture & Team Spirit
+The team works professionally while maintaining a welcoming and supportive atmosphere. Everyone respects one another’s ideas and steps in when help is needed. During high workload periods, the team works together instead of dividing pressure individually. This made me feel truly included, even as an intern.
 
 ---
 
-### Additional Questions
-- What did you find **most satisfying** during your internship?  
-- What do you think the company **should improve** for future interns?  
-- If recommending to a friend, would you **suggest they intern here**? Why or why not?  
+## Additional Questions
+- What satisfied me most during this internship was gaining exposure to real development workflows and receiving dedicated mentorship.  
+- FCJ could consider expanding knowledge-sharing sessions across teams to increase interaction and mutual learning.  
+- I would recommend this internship to friends, as it offers a friendly environment and strong growth opportunities.
 
 ---
 
-### Suggestions & Expectations
-- Do you have any suggestions to improve the internship experience?  
-- Would you like to continue this program in the future?  
-- Any other comments (free sharing):
+## Suggestions & Expectations
+- I hope to participate in more internal workshops on new technologies to broaden technical understanding.  
+- I am willing to continue with the program in the future if given the chance.  
+- This internship has helped me grow in both mindset and skillset — I sincerely appreciate the support and experience FCJ has provided.

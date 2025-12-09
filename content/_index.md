@@ -31,7 +31,7 @@ chapter: false
 
 &emsp; **Internship Duration:** From 8/9/2025 to 9/12/2025
 
-![Your profile picture](/images/avtcuatui.jpg)
+![Your profile picture](/images/avtcuatui.png)
 
 ### Report Content
 

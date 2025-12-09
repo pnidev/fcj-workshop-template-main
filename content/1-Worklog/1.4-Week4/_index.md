@@ -1,57 +1,49 @@
 ---
 title: "Week 4 Worklog"
-date: "`r Sys.Date()`"
-weight: 1
+date: 2025-09-30
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 4 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Gain hands-on experience with **Amazon S3** for web hosting and object storage.
+* Explore **Amazon Lightsail** as a simplified cloud deployment option compared to EC2.
+* Learn how to deploy applications using **Lightsail Containers**.
+* Practice real application deployment workflows in a cloud production-style environment.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+---
 
+### Weekly Task Summary:
 
-### Week 4 Achievements:
+| Day | Tasks                                                                                                                        | Start       | Completed       | References                                     |
+|---|--------------------------------------------------------------------------------------------------------------------------------|-------------|-----------------|------------------------------------------------|
+| 1  | - Study **Amazon S3 architecture** <br> - Learn bucket, object, storage class concepts <br> - Configure static website hosting | 30/09/2025  | 30/09/2025      | https://000057.awsstudygroup.com/vi/           |
+| 2  | - **Static site hands-on:** <br> + Upload HTML/CSS/JS files <br> + Enable public access <br> + Test website via S3 URL         | 01/10/2025  | 01/10/2025      | https://000057.awsstudygroup.com/vi/           |
+| 3  | - Introduction to **Amazon Lightsail** <br> - Compare features vs EC2 <br> - Launch a test instance                           | 02/10/2025  | 02/10/2025      | https://000045.awsstudygroup.com/vi/           |
+| 4  | - Explore **Lightsail Containers** <br> - Learn basics of container image deployment <br> - Deploy first containerized app    | 03/10/2025  | 03/10/2025      | https://000046.awsstudygroup.com/vi/           |
+| 5  | - **Mini Project:** <br> + Fully deploy static website via S3 <br> + Deploy a container app via Lightsail <br> + Compare cost models: S3 vs Lightsail vs EC2 <br> + Clean up unused resources | 04/10/2025 | 04/10/2025 | https://000057.awsstudygroup.com/vi/ |
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+---
 
-* Successfully created and configured an AWS Free Tier account.
+### Week 4 Outcomes:
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Successfully deployed a **public static website using Amazon S3**.
+* Learned how to configure bucket permissions, access policies, and public access control.
+* Understood how **Lightsail** provides simplified deployment compared to EC2.
+* Deployed a **container-based application** using Lightsail Containers.
+* Evaluated cost differences between S3, Lightsail, and EC2 for different project scopes.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+---
 
-* Used AWS CLI to perform basic operations such as:
+### Summary:
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+By the end of Week 4, I was able to:
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Host and manage static websites on S3 with custom permission policies.
+* Deploy applications quickly using Lightsail without full EC2 configuration overhead.
+* Build and run containerized workloads using Lightsail Containers.
+* Choose the appropriate service (S3 / Lightsail / EC2) based on complexity, scale, and budget.
+
+---

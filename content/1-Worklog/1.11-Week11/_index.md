@@ -1,57 +1,50 @@
 ---
 title: "Week 11 Worklog"
-date: "`r Sys.Date()`"
-weight: 2
+date: 2025-11-18
+weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 11 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Gain an in-depth understanding of **High Availability (HA)** in cloud architecture.
+* Design and operate a **multi-tier web application architecture**.
+* Learn and compare different **Elastic Load Balancer types** (ALB, NLB, CLB) and their use cases.
+* Implement **backup, replication, and disaster recovery (DR)** strategies for production workloads.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+---
 
+### Weekly Task Breakdown:
 
-### Week 11 Achievements:
+| Day | Task                                                                                                                           | Start | Done | References |
+|---|----------------------------------------------------------------------------------------------------------------------------------|-------|------|------------|
+| 1  | - Introduction to HA in cloud environments <br> - Concepts: fault tolerance & resilience <br> - Study Reliability Pillar in Well-Architected Framework | 18/11/2025 | 18/11/2025 | AWS Well-Architected Docs |
+| 2  | - Deep dive into ELB <br> - Differences between ALB, NLB, CLB + use cases <br> - Create and test an Application Load Balancer                 | 19/11/2025 | 19/11/2025 | AWS ELB Service Guide |
+| 3  | - Design 3-tier architecture Web → App → DB <br> - Configure multi-AZ load balancing <br> - Build demo multi-layered environment          | 20/11/2025 | 20/11/2025 | AWS Multi-Tier Architecture Notes |
+| 4  | - Implement **backup & restore** for RDS and EBS <br> - Test cross-region replication <br> - Build DR strategy and failover plan        | 21/11/2025 | 21/11/2025 | AWS DR Whitepaper |
+| 5  | - **Full Lab Implementation:** <br> + Build HA Web App on AWS <br> + ALB + Auto Scaling working together <br> + Multi-AZ RDS + Read Replica <br> + Execute DR failover testing | 22/11/2025 | 22/11/2025 | FCJ Hands-on Workshop |
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+---
 
-* Successfully created and configured an AWS Free Tier account.
+### Week 11 Outcomes:
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Solid understanding of **High Availability & Fault Tolerance** in practice.
+* Successfully configured and tested multiple **Elastic Load Balancer types**.
+* Completed a scalable **3-tier architecture** with multi-AZ redundancy.
+* Designed a working **Disaster Recovery plan** with safe backup strategies.
+* Built an application capable of operating reliably even under failure scenarios.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+---
 
-* Used AWS CLI to perform basic operations such as:
+### Summary:
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+By the end of the week, I was able to:
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Design HA-based infrastructure aligned with AWS best practices.
+* Operate Application Load Balancer for smart traffic routing.
+* Build multi-tier and multi-AZ architectures that scale automatically.
+* Configure automated backups and implement DR mechanisms.
+* Perform live failover simulations to ensure production readiness.
+
+---

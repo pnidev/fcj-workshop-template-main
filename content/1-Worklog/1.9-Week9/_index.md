@@ -1,57 +1,50 @@
 ---
 title: "Week 9 Worklog"
-date: "`r Sys.Date()`"
-weight: 1
+date: 2025-11-04
+weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 9 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Explore how to operate **Windows Workloads on AWS**.
+* Launch and administer **Windows Server hosted on EC2**.
+* Get familiar with **AWS Managed Microsoft AD** for centralized identity management.
+* Experiment with integrating Windows workloads into various AWS enterprise services.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+---
 
+### Weekly Task Implementation:
 
-### Week 9 Achievements:
+| Day | Task                                                                                                                             | Start       | Completed    | Reference Materials                                        |
+|---|-----------------------------------------------------------------------------------------------------------------------------------|-------------|---------------|------------------------------------------------------------|
+| 1  | - Review foundational concepts of **Windows on AWS** <br> - Understand Windows EC2 licensing model <br> - Launch first Windows Server EC2 instance | 04/11/2025  | 04/11/2025    | https://000093.awsstudygroup.com/vi/                      |
+| 2  | - Connect to EC2 Windows using **Remote Desktop (RDP)** <br> - Enable necessary Windows roles and features <br> - Deploy IIS Web Server on Windows EC2 | 05/11/2025 | 05/11/2025    | FCJ Notes, AWS Windows Hands-on                           |
+| 3  | - Study **AWS Managed Microsoft AD** <br> - Understand AD structure: Domain, OU, Group <br> - Deploy Directory Service on AWS     | 06/11/2025  | 06/11/2025    | AWS Directory Service Docs                                |
+| 4  | - **Join Windows EC2 to Directory Domain** <br> - Create user, group, and assign permissions <br> - Configure Group Policies for centralized management | 07/11/2025 | 07/11/2025    | AWS Managed AD Whitepaper                                 |
+| 5  | - **Final hands-on practice:** <br> + Deploy Windows application on EC2 <br> + Integrate authentication with Managed AD <br> + Test domain login + SSO <br> + Build and document user management workflow | 08/11/2025 | 08/11/2025    | AWS Enterprise Patterns, FCJ Workshop                     |
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+---
 
-* Successfully created and configured an AWS Free Tier account.
+### Achievements:
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Successfully launched and managed **Windows Server on EC2**.
+* Connected via RDP, installed IIS, and hosted a sample web application.
+* Deployed and configured **AWS Managed Microsoft AD** for identity services.
+* Joined Windows EC2 to domain and centrally managed users and groups.
+* Practiced policy administration using Group Policy and SSO authentication.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+---
 
-* Used AWS CLI to perform basic operations such as:
+### Summary:
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+By the end of Week 9, I was able to:
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Independently deploy and operate Windows workloads on AWS.
+* Install IIS and host applications directly on EC2 Windows instances.
+* Build Active Directory using Managed AD and apply it to real scenarios.
+* Join servers to a domain and manage authentication and user access.
+* Operate Windows-based environments on AWS using enterprise-grade approaches.
+
+---

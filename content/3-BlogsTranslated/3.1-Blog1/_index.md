@@ -28,6 +28,7 @@ This architectural pattern is especially valuable for organizations that want to
 
 ## Solution overview
 The following diagram illustrates the architecture we will deploy to connect Aurora PostgreSQL-Compatible with Amazon Bedrock Knowledge Bases using zero-ETL.
+
 ![blog1_1](/images/blog1_1.png)
 
 Workflow includes the following steps:
@@ -197,7 +198,7 @@ You may test using:
 Console offers two modes of interaction:
 
 ● Generate SQL queries – Shows raw SQL created from natural language input.
-![blog1_1](/images/blog1_6png)
+![blog1_1](/images/blog1_6.png)
 
 
 ● Retrieval and response generation – Generates natural language output using an LLM.

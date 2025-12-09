@@ -1,59 +1,50 @@
 ---
-title: "Worklog Tuần 5"
-date: "`r Sys.Date()`"
-weight: 1
+title: "Week 5 Worklog"
+date: 2025-10-07
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 5:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hiểu cơ chế hoạt động của **Amazon RDS** và khi nào nên dùng CSDL quan hệ.
+* Triển khai, cấu hình và kết nối thử nghiệm **RDS instance** trong môi trường VPC.
+* Làm quen với **Amazon DynamoDB** – NoSQL với hiệu năng cao & tối ưu scale.
+* So sánh ưu nhược điểm RDS vs DynamoDB để lựa chọn đúng ngữ cảnh hệ thống.
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+---
 
+### Công việc thực hiện trong tuần:
 
-### Kết quả đạt được tuần 5:
+| Ngày | Nhiệm vụ                                                                                                        | Bắt đầu     | Hoàn thành      | Tài liệu                           |
+|---|-------------------------------------------------------------------------------------------------------------------|-------------|-----------------|------------------------------------|
+| 1  | - Giới thiệu tổng quan **Amazon RDS** <br> - Tìm hiểu MySQL/PostgreSQL engines <br> - Multi-AZ, Read Replica hoạt động thế nào? | 07/10/2025 | 07/10/2025      | https://000005.awsstudygroup.com/vi/ |
+| 2  | - Khởi tạo RDS instance đầu tiên <br> - Thiết lập Security Group truy cập hợp lệ <br> - Kết nối RDS từ EC2 qua MySQL Workbench/CLI | 08/10/2025 | 08/10/2025      | https://000005.awsstudygroup.com/vi/4-create-rds/ |
+| 3  | - Tìm hiểu snapshot và cơ chế backup tự động <br> - Restore DB thử nghiệm từ snapshot <br> - Test khả năng phục hồi dữ liệu | 09/10/2025 | 09/10/2025      | https://000005.awsstudygroup.com/vi/6-backup/ |
+| 4  | - Làm quen **DynamoDB** <br> - Kiến trúc NoSQL, Partition Key/Sort Key <br> - Tạo bảng và chạy thử truy vấn | 10/10/2025 | 10/10/2025      | https://000060.awsstudygroup.com/vi/ |
+| 5  | - **Mini lab**: <br> + Tạo RDS MySQL và thao tác CRUD <br> + Tạo DynamoDB table, đọc/ghi dữ liệu <br> + So sánh tốc độ đọc ghi RDS vs DynamoDB <br> + Cleanup resource tránh phát sinh phí | 11/10/2025 | 11/10/2025 | https://000005.awsstudygroup.com/vi/5-deploy-app/ |
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+---
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+### Kết quả đạt được:
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Hiểu được cơ chế **RDS vận hành, replicate và backup dữ liệu**.
+* Tạo RDS instance, mở kết nối và chạy truy vấn thử thành công.
+* Biết cách khôi phục dữ liệu DB từ snapshot và tự động backup.
+* Tạo bảng DynamoDB và thực hiện CRUD bằng console & SDK.
+* Có cái nhìn thực tế hơn về hiệu năng giữa CSDL quan hệ và NoSQL.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+---
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+### Tổng kết:
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+Sau tuần 5, tôi đã:
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Vận hành được RDS MySQL từ khâu tạo – kết nối – vận hành – backup.
+* Biết sử dụng Security Group để giới hạn truy cập DB an toàn.
+* Hiểu snapshot/restore dùng trong kịch bản sự cố hoặc rollback.
+* Thiết kế bảng DynamoDB phù hợp với khối lượng truy vấn lớn.
+* Đánh giá được khi nào nên chọn RDS (transaction mạnh) hay DynamoDB (scale lớn, latency thấp).
 
-
+---
