@@ -15,21 +15,21 @@
     <title>Blog 1 :: Báo cáo thực tập</title>
 
     
-    <link href="../../../css/nucleus.css?1765297162" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1765297162" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1765297162" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1765297162" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1765297162" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1765297162" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1765297162" rel="stylesheet">
-    <link href="../../../css/theme.css?1765297162" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1765297162" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1765305372" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1765305372" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1765305372" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1765305372" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1765305372" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1765305372" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1765305372" rel="stylesheet">
+    <link href="../../../css/theme.css?1765305372" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1765305372" rel="stylesheet">
     
-    <link href="../../../css/theme-workshop.css?1765297162" rel="stylesheet">
+    <link href="../../../css/theme-workshop.css?1765305372" rel="stylesheet">
     
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1765297162"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1765305372"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1765297162"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1765297162"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1765305372"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1765305372"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/thienluhoan.github.io\/workshop-template\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1765297162"></script>
+<script type="text/javascript" src="../../../js/search.js?1765305372"></script>
  
   </div>
 
@@ -986,15 +986,24 @@
                     <div class="progress">
   <div class="wrapper"><nav id="TableOfContents">
   <ul>
-    <li><a href="#hướng-dẫn-kiến-trúc">Hướng dẫn kiến trúc</a></li>
-    <li><a href="#lựa-chọn-công-nghệ-và-phạm-vi-giao-tiếp">Lựa chọn công nghệ và phạm vi giao tiếp</a></li>
-    <li><a href="#the-pubsub-hub">The pub/sub hub</a></li>
-    <li><a href="#core-microservice">Core microservice</a></li>
-    <li><a href="#front-door-microservice">Front door microservice</a></li>
+    <li><a href="#structured-data-retrieval-trong-amazon-bedrock-knowledge-bases-và-amazon-redshift-zero-etl">Structured data retrieval trong Amazon Bedrock Knowledge Bases và Amazon Redshift Zero-ETL</a></li>
+    <li><a href="#solution-overview">Solution overview</a></li>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#thiết-lập-aurora-postgresql-database">Thiết lập Aurora PostgreSQL database</a></li>
+    <li><a href="#provision-the-database">Provision the database</a></li>
+    <li><a href="#điền-dữ-liệu-vào-các-bảng">Điền dữ liệu vào các bảng</a></li>
     <li><a href="#staging-er7-microservice">Staging ER7 microservice</a></li>
-    <li><a href="#tính-năng-mới-trong-giải-pháp">Tính năng mới trong giải pháp</a>
+    <li><a href="#thiết-lập-redshift-cluster-và-cấu-hình-zero-etl">Thiết lập Redshift cluster và cấu hình zero-ETL</a>
       <ul>
-        <li><a href="#1-aws-cloudformation-cross-stack-references">1. AWS CloudFormation cross-stack references</a></li>
+        <li><a href="#thiết-lập-amazon-redshift">Thiết lập Amazon Redshift</a></li>
+        <li><a href="#tạo-zero-etl-integration">Tạo zero-ETL integration</a></li>
+        <li><a href="#xác-minh-tích-hợp">Xác minh tích hợp</a></li>
+        <li><a href="#thiết-lập-amazon-bedrock-knowledge-base-với-structured-data">Thiết lập Amazon Bedrock knowledge base với structured data</a></li>
+        <li><a href="#xác-minh-thiết-lập">Xác minh thiết lập</a></li>
+        <li><a href="#ví-dụ-về-truy-vấn-bằng-natural-language">Ví dụ về truy vấn bằng natural language</a></li>
+        <li><a href="#dọn-dẹp">Dọn dẹp</a></li>
+        <li><a href="#kết-luận">Kết luận</a></li>
+        <li><a href="#về-tác-giả">Về tác giả</a></li>
       </ul>
     </li>
   </ul>
@@ -1030,91 +1039,77 @@
 
 </div>
 
-<h1 id="bắt-đầu-với-healthcare-data-lakes-sử-dụng-microservices">Bắt đầu với healthcare data lakes: Sử dụng microservices</h1>
-<p>Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. <strong>Data lake</strong> là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.</p>
-<p>Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, <em>“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”</em>, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.</p>
-<hr>
-<h2 id="hướng-dẫn-kiến-trúc">Hướng dẫn kiến trúc</h2>
-<p>Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.</p>
-<p>Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các <strong>HL7v2 messages</strong> được định dạng theo <strong>Quy tắc mã hóa 7 (ER7)</strong> thông qua giao diện REST.</p>
-<p><strong>Kiến trúc giải pháp bây giờ như sau:</strong></p>
-<blockquote>
-<p><em>Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.</em></p>
-</blockquote>
-<hr>
-<p>Mặc dù thuật ngữ <em>microservices</em> có một số sự mơ hồ cố hữu, một số đặc điểm là chung:</p>
-<ul>
-<li>Chúng nhỏ, tự chủ, kết hợp rời rạc</li>
-<li>Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ</li>
-<li>Chuyên biệt để giải quyết một việc</li>
-<li>Thường được triển khai trong <strong>event-driven architecture</strong></li>
-</ul>
-<p>Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:</p>
-<ul>
-<li><strong>Nội tại</strong>: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng</li>
-<li><strong>Bên ngoài</strong>: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng</li>
-<li><strong>Con người</strong>: quyền sở hữu nhóm, quản lý <em>cognitive load</em></li>
-</ul>
-<hr>
-<h2 id="lựa-chọn-công-nghệ-và-phạm-vi-giao-tiếp">Lựa chọn công nghệ và phạm vi giao tiếp</h2>
-<table>
-  <thead>
-      <tr>
-          <th style="text-align: left">Phạm vi giao tiếp</th>
-          <th style="text-align: left">Các công nghệ / mô hình cần xem xét</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: left">Trong một microservice</td>
-          <td style="text-align: left">Amazon Simple Queue Service (Amazon SQS), AWS Step Functions</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Giữa các microservices trong một dịch vụ</td>
-          <td style="text-align: left">AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS)</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Giữa các dịch vụ</td>
-          <td style="text-align: left">Amazon EventBridge, AWS Cloud Map, Amazon API Gateway</td>
-      </tr>
-  </tbody>
-</table>
-<hr>
-<h2 id="the-pubsub-hub">The pub/sub hub</h2>
-<p>Việc sử dụng kiến trúc <strong>hub-and-spoke</strong> (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.</p>
-<ul>
-<li>Mỗi microservice chỉ phụ thuộc vào <em>hub</em></li>
-<li>Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất</li>
-<li>Giảm số lượng synchronous calls vì pub/sub là <em>push</em> không đồng bộ một chiều</li>
-</ul>
-<p>Nhược điểm: cần <strong>phối hợp và giám sát</strong> để tránh microservice xử lý nhầm message.</p>
-<hr>
-<h2 id="core-microservice">Core microservice</h2>
-<p>Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:</p>
-<ul>
-<li><strong>Amazon S3</strong> bucket cho dữ liệu</li>
-<li><strong>Amazon DynamoDB</strong> cho danh mục dữ liệu</li>
-<li><strong>AWS Lambda</strong> để ghi message vào data lake và danh mục</li>
-<li><strong>Amazon SNS</strong> topic làm <em>hub</em></li>
-<li><strong>Amazon S3</strong> bucket cho artifacts như mã Lambda</li>
-</ul>
-<blockquote>
-<p>Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.</p>
-</blockquote>
-<hr>
-<h2 id="front-door-microservice">Front door microservice</h2>
-<ul>
-<li>Cung cấp API Gateway để tương tác REST bên ngoài</li>
-<li>Xác thực &amp; ủy quyền dựa trên <strong>OIDC</strong> thông qua <strong>Amazon Cognito</strong></li>
-<li>Cơ chế <em>deduplication</em> tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-<ol>
-<li>SNS deduplication TTL chỉ 5 phút</li>
-<li>SNS FIFO yêu cầu SQS FIFO</li>
-<li>Chủ động báo cho sender biết message là bản sao</li>
-</ol>
-</li>
-</ul>
-<hr>
+<h1 id="truy-vấn-amazon-aurora-postgresql-bằng-cách-sử-dụng-amazon-bedrock-knowledge-bases-với-dữ-liệu-có-cấu-trúc">Truy vấn Amazon Aurora PostgreSQL bằng cách sử dụng Amazon Bedrock Knowledge Bases với dữ liệu có cấu trúc</h1>
+<p>Amazon Bedrock Knowledge Bases cung cấp tính năng Retrieval Augmented Generation (RAG) được quản lý hoàn toàn, cho phép kết nối Large Language Models (LLMs) với các nguồn dữ liệu nội bộ.Tính năng này giúp cải thiện đầu ra của Foundation Models (FMs) bằng cách bổ sung ngữ cảnh từ dữ liệu riêng tư, làm cho phản hồi trở nên chính xác và phù hợp hơn.</p>
+<p>Tại AWS re:Invent 2024, AWS công bố rằng Amazon Bedrock Knowledge Bases hiện hỗ trợ truy vấn ngôn ngữ tự nhiên (natural language querying) để truy xuất dữ liệu có cấu trúc (structured data) từ Amazon Redshift và Amazon SageMaker Lakehouse.
+Tính năng này mang đến một quy trình quản lý đầy đủ để xây dựng các ứng dụng Generative AI có khả năng truy cập và tích hợp thông tin từ cả nguồn dữ liệu có cấu trúc và phi cấu trúc. Bằng cách sử dụng Natural Language Processing (NLP), Amazon Bedrock Knowledge Bases có thể chuyển đổi truy vấn ngôn ngữ tự nhiên thành câu lệnh SQL, cho phép người dùng truy xuất dữ liệu trực tiếp từ các nguồn được hỗ trợ mà không cần hiểu cấu trúc cơ sở dữ liệu hay cú pháp SQL.</p>
+<p>Bài viết này sẽ hướng dẫn cách làm cho dữ liệu trong Amazon Aurora PostgreSQL-Compatible Edition có thể được truy vấn bằng ngôn ngữ tự nhiên thông qua Amazon Bedrock Knowledge Bases, đồng thời duy trì tính cập nhật của dữ liệu (data freshness).</p>
+<h2 id="structured-data-retrieval-trong-amazon-bedrock-knowledge-bases-và-amazon-redshift-zero-etl">Structured data retrieval trong Amazon Bedrock Knowledge Bases và Amazon Redshift Zero-ETL</h2>
+<p>Structured data retrieval trong Amazon Bedrock Knowledge Bases cho phép tương tác bằng natural language với database của bạn bằng cách convert các user queries thành các SQL statements. Khi bạn connect một supported data source như Amazon Redshift, Amazon Bedrock Knowledge Bases sẽ analyze database schema, table relationships, query engine, và các historical queries để hiểu context và structure của thông tin của bạn. Hiểu biết này cho phép service tạo ra các SQL queries chính xác từ các natural language questions.</p>
+<p>Tại thời điểm viết bài, Amazon Bedrock Knowledge Bases hỗ trợ structured data retrieval trực tiếp từ Amazon Redshift và SageMaker Lakehouse. Mặc dù direct support cho Aurora PostgreSQL-Compatible hiện tại chưa có, bạn có thể sử dụng zero-ETL integration giữa Aurora PostgreSQL-Compatible và Amazon Redshift để làm cho dữ liệu của bạn có thể truy cập được bởi Amazon Bedrock Knowledge Bases structured data retrieval. Zero-ETL integration tự động replicate các Aurora PostgreSQL tables sang Amazon Redshift gần như trong thời gian thực, giúp alleviate nhu cầu về các complex extract, transform, and load (ETL) pipelines hoặc các data movement processes.</p>
+<p>Architectural pattern này đặc biệt có giá trị cho các tổ chức muốn enable natural language querying đối với structured application data được lưu trữ trong các Amazon Aurora database tables. Bằng cách kết hợp zero-ETL integration với Amazon Bedrock Knowledge Bases, bạn có thể tạo ra các powerful applications như AI assistants sử dụng LLMs để cung cấp natural language responses dựa trên operational data của họ.</p>
+<h2 id="solution-overview">Solution overview</h2>
+<p>Sơ đồ sau minh họa architecture mà chúng ta sẽ triển khai để connect Aurora PostgreSQL-Compatible với Amazon Bedrock Knowledge Bases sử dụng zero-ETL.
+<img alt="blog1_1" src="../../../images/blog1_1.png"></p>
+<p>Workflow bao gồm các bước sau:
+Dữ liệu được lưu trữ trong Aurora PostgreSQL-Compatible bên trong private subnet. Chúng tôi sử dụng bastion host để connect securely đến database từ public subnet.</p>
+<p>Sử dụng zero-ETL integration, dữ liệu này được đưa vào Amazon Redshift, cũng nằm trong private subnet.</p>
+<p>Amazon Bedrock Knowledge Bases sử dụng Amazon Redshift làm structured data source.</p>
+<p>Người dùng có thể tương tác với Amazon Bedrock Knowledge Bases thông qua AWS Management Console hoặc AWS SDK client, gửi các natural language queries. Các queries này được processed bởi Amazon Bedrock Knowledge Bases để retrieve information được lưu trữ trong Amazon Redshift (nguồn từ Aurora).</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Đảm bảo bạn đã logged in với user role có quyền để:
+Tạo một Aurora database, chạy các DDL (CREATE, ALTER, DROP, RENAME) và DML (SELECT, INSERT, UPDATE, DELETE) statements</p>
+<p>Tạo một Redshift database</p>
+<p>Thiết lập zero-ETL integration</p>
+<p>Tạo một Amazon Bedrock knowledge base</p>
+<h2 id="thiết-lập-aurora-postgresql-database">Thiết lập Aurora PostgreSQL database</h2>
+<p>Trong phần này, chúng ta sẽ đi qua việc tạo và cấu hình một Aurora PostgreSQL database với một sample schema để minh họa cho bài hướng dẫn. Chúng ta sẽ tạo ba bảng liên kết với nhau: products, customers, và orders.</p>
+<h2 id="provision-the-database">Provision the database</h2>
+<p>Trong phần này, chúng ta sẽ đi qua việc tạo và cấu hình một Aurora PostgreSQL database với một sample schema để minh họa cho bài hướng dẫn. Chúng ta sẽ tạo ba bảng liên kết với nhau: products, customers, và orders.
+Provision the database
+Bắt đầu bằng việc thiết lập môi trường database. Tạo một Aurora PostgreSQL database cluster mới và khởi chạy một Amazon Elastic Compute Cloud (Amazon EC2) instance để làm điểm truy cập quản lý database. EC2 instance sẽ giúp tạo bảng và quản lý dữ liệu một cách thuận tiện trong suốt bài hướng dẫn này.
+Hình screenshot sau đây hiển thị chi tiết của database cluster và EC2 instance.
+<img alt="blog1_1" src="../../../images/blog1_2.png"></p>
+<p>Để được hướng dẫn thiết lập database của bạn, tham khảo Creating and connecting to an Aurora PostgreSQL DB cluster.
+Tạo database schema
+Sau khi bạn kết nối đến database bằng SSH trên EC2 instance của mình (được mô tả trong Creating and connecting to an Aurora PostgreSQL DB cluster), đã đến lúc tạo cấu trúc dữ liệu. Chúng ta sẽ sử dụng các DDL statements sau để tạo ba bảng:
+&ndash; Create Product table
+CREATE TABLE product (
+product_id SERIAL PRIMARY KEY,
+product_name VARCHAR(100) NOT NULL,
+price DECIMAL(10, 2) NOT NULL
+);</p>
+<p>&ndash; Create Customer table
+CREATE TABLE customer (
+customer_id SERIAL PRIMARY KEY,
+customer_name VARCHAR(100) NOT NULL,
+pincode VARCHAR(10) NOT NULL
+);</p>
+<p>&ndash; Create Orders table
+CREATE TABLE orders (
+order_id SERIAL PRIMARY KEY,
+product_id INTEGER NOT NULL,
+customer_id INTEGER NOT NULL,
+FOREIGN KEY (product_id) REFERENCES product(product_id),
+FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
+);</p>
+<h2 id="điền-dữ-liệu-vào-các-bảng">Điền dữ liệu vào các bảng</h2>
+<p>Sau khi tạo các bảng, bạn có thể điền dữ liệu mẫu vào chúng. Khi chèn dữ liệu vào bảng orders, hãy nhớ duy trì referential integrity bằng cách kiểm tra: product_id tồn tại trong bảng product và customer_id tồn tại trong bảng customer.</p>
+<p>Ví dụ mã để điền dữ liệu vào các bảng như sau:</p>
+<p>INSERT INTO product (product_id, product_name, price) VALUES (1, &lsquo;Smartphone X&rsquo;, 699.99);
+INSERT INTO product (product_id, product_name, price) VALUES (2, &lsquo;Laptop Pro&rsquo;, 1299.99);
+INSERT INTO product (product_id, product_name, price) VALUES (3, &lsquo;Wireless Earbuds&rsquo;, 129.99);
+INSERT INTO customer (customer_id, customer_name, pincode) VALUES (1, &lsquo;John Doe&rsquo;, &lsquo;12345&rsquo;);
+INSERT INTO customer (customer_id, customer_name, pincode) VALUES (2, &lsquo;Jane Smith&rsquo;, &lsquo;23456&rsquo;);
+INSERT INTO customer (customer_id, customer_name, pincode) VALUES (3, &lsquo;Robert Johnson&rsquo;, &lsquo;34567&rsquo;);
+INSERT INTO orders (order_id, product_id, customer_id) VALUES (1, 1, 1);
+INSERT INTO orders (order_id, product_id, customer_id) VALUES (2, 1, 2);
+INSERT INTO orders (order_id, product_id, customer_id) VALUES (3, 2, 3);
+INSERT INTO orders (order_id, product_id, customer_id) VALUES (4, 2, 1);
+INSERT INTO orders (order_id, product_id, customer_id) VALUES (5, 3, 2);
+INSERT INTO orders (order_id, product_id, customer_id) VALUES (6, 3, 3);</p>
+<p>Hãy đảm bảo duy trì referential integrity khi điền dữ liệu vào bảng orders để tránh vi phạm foreign key constraint.</p>
+<p>Bạn cũng có thể sử dụng các ví dụ tương tự để xây dựng schema và điền dữ liệu cho các bảng khác.</p>
 <h2 id="staging-er7-microservice">Staging ER7 microservice</h2>
 <ul>
 <li>Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute</li>
@@ -1128,31 +1123,93 @@
 <li>Kết quả hoặc lỗi được đẩy lại vào pub/sub hub</li>
 </ul>
 <hr>
-<h2 id="tính-năng-mới-trong-giải-pháp">Tính năng mới trong giải pháp</h2>
-<h3 id="1-aws-cloudformation-cross-stack-references">1. AWS CloudFormation cross-stack references</h3>
-<p>Ví dụ <em>outputs</em> trong core microservice:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Outputs</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Bucket</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref Bucket</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-Bucket</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ArtifactBucket</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref ArtifactBucket</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-ArtifactBucket</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Topic</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref Topic</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-Topic</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Catalog</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref Catalog</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-Catalog</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">CatalogArn</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">GetAtt Catalog.Arn</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-CatalogArn</span>
-</span></span></code></pre></div>
+<h2 id="thiết-lập-redshift-cluster-và-cấu-hình-zero-etl">Thiết lập Redshift cluster và cấu hình zero-ETL</h2>
+<p>Sau khi thiết lập xong Aurora PostgreSQL database, bạn có thể thiết lập zero-ETL integration với Amazon Redshift. Tích hợp này tự động đồng bộ dữ liệu giữa Aurora PostgreSQL-Compatible và Amazon Redshift.</p>
+<h3 id="thiết-lập-amazon-redshift">Thiết lập Amazon Redshift</h3>
+<p>Trước tiên, tạo một Amazon Redshift Serverless workgroup và namespace. Tham khảo hướng dẫn tại Creating a data warehouse with Amazon Redshift Serverless.</p>
+<h3 id="tạo-zero-etl-integration">Tạo zero-ETL integration</h3>
+<p>Quy trình zero-ETL integration bao gồm hai bước chính:</p>
+<p>1.Tạo zero-ETL integration từ Aurora PostgreSQL database sang Redshift Serverless.
+2.Sau khi thiết lập tích hợp trên Aurora, tạo mapping database tương ứng trong Amazon       Redshift. Bước này quan trọng để đảm bảo đồng bộ dữ liệu chính xác giữa hai dịch vụ.</p>
+<p>Ảnh chụp màn hình sau minh họa chi tiết về zero-ETL integration của chúng tôi.
+<img alt="blog1_1" src="../../../images/blog1_3.png"></p>
+<h3 id="xác-minh-tích-hợp">Xác minh tích hợp</h3>
+<p>Sau khi hoàn thành việc tích hợp, bạn có thể xác minh thành công của nó thông qua một số kiểm tra.</p>
+<p>Trước hết, bạn có thể kiểm tra chi tiết zero-ETL integration trong Amazon Redshift console. Bạn sẽ thấy trạng thái Active cho tích hợp của mình, cùng với thông tin nguồn (source) và đích (destination), như được hiển thị trong screenshot sau.</p>
+<p><img alt="blog1_1" src="../../../images/blog1_4.png">
+Ngoài ra, bạn có thể sử dụng Redshift Query Editor v2 để xác minh rằng dữ liệu của bạn đã được populate thành công. Một truy vấn đơn giản như SELECT * FROM customer; sẽ trả về dữ liệu đã được đồng bộ từ Aurora PostgreSQL database của bạn, như được hiển thị trong screenshot sau.
+<img alt="blog1_1" src="../../../images/blog1_5.png"></p>
+<h3 id="thiết-lập-amazon-bedrock-knowledge-base-với-structured-data">Thiết lập Amazon Bedrock knowledge base với structured data</h3>
+<p>Bước cuối cùng là tạo một Amazon Bedrock knowledge base, cho phép truy vấn dữ liệu bằng natural language.</p>
+<h4 id="tạo-amazon-bedrock-knowledge-base">Tạo Amazon Bedrock knowledge base</h4>
+<p>Tạo một Amazon Bedrock knowledge base mới với tùy chọn structured data. Để biết hướng dẫn, xem Build a knowledge base by connecting to a structured data store. Sau đó, bạn phải đồng bộ query engine để cho phép truy cập dữ liệu.</p>
+<h4 id="cấu-hình-quyền-truy-cập-dữ-liệu">Cấu hình quyền truy cập dữ liệu</h4>
+<p>Trước khi quá trình đồng bộ thành công, bạn cần cấp các quyền thích hợp cho Amazon Bedrock Knowledge Bases AWS Identity and Access Management (IAM) role. Điều này bao gồm việc thực hiện các lệnh GRANT SELECT cho từng bảng trong Redshift database của bạn.</p>
+<p>Chạy lệnh sau trong Redshift Query Editor v2 cho mỗi bảng:
+GRANT SELECT ON &lt;table_name&gt; TO &ldquo;IAMR:<KB Role name>&rdquo;;
+Ví dụ:
+GRANT SELECT ON customer TO &ldquo;IAMR:AmazonBedrockExecutionRoleForKnowledgeBase_ej0f0&rdquo;;</p>
+<p>Đối với môi trường production, việc tích hợp identity của end-user vào luồng truy cập dữ liệu yêu cầu identity federation. Tham khảo tài liệu AWS về structured database access cho role-based access model. Đối với federating identities từ web clients, có thể cần Amazon Cognito hoặc SAML federation với AWS Security Token Service (AWS STS) tùy thuộc vào kiến trúc của bạn.</p>
+<h3 id="xác-minh-thiết-lập">Xác minh thiết lập</h3>
+<p>Sau khi hoàn tất cấu hình, knowledge base của bạn sẽ hiển thị các thông tin sau:
+Trạng thái là Available</p>
+<p>Query engine đã được đồng bộ thành công với Amazon Redshift</p>
+<p>Trạng thái COMPLETE cho quá trình đồng bộ database</p>
+<p>Bạn giờ có thể bắt đầu truy vấn dữ liệu của mình bằng natural language.</p>
+<h3 id="ví-dụ-về-truy-vấn-bằng-natural-language">Ví dụ về truy vấn bằng natural language</h3>
+<p>Khi đã thiết lập xong Amazon Bedrock knowledge base, bạn có thể bắt đầu kiểm tra khả năng của nó bằng cách thực hiện các truy vấn bằng natural language trên dữ liệu có cấu trúc. Structured data trong Amazon Bedrock Knowledge Bases sẽ chuyển đổi các câu hỏi bằng tiếng Anh sang SQL và sử dụng các FMs để tạo phản hồi dễ đọc cho con người.</p>
+<p>Bạn có thể kiểm tra Amazon Bedrock knowledge base bằng hai cách:</p>
+<p>● Amazon Bedrock console – Trên Amazon Bedrock console, chọn Knowledge Bases trong navigation pane, và chọn knowledge base đã được cấu hình. Mở tab Test để tương tác với dữ liệu của bạn.</p>
+<p>● AWS SDK hoặc API – Sử dụng AWS SDK (ví dụ: Boto3 của Python) hoặc gọi trực tiếp RetrieveAndGenerate API để gửi truy vấn theo lập trình.</p>
+<p>Trong phần này, chúng tôi minh họa trải nghiệm trên console. Trên Amazon Bedrock console, bạn có thể tương tác với knowledge base theo hai chế độ:</p>
+<p>● Generate SQL queries – Tùy chọn này hiển thị câu lệnh SQL thô được tạo ra từ câu hỏi bằng natural language của bạn.
+<img alt="blog1_1" src="../../../images/blog1_6png"></p>
+<p>● Retrieval and response generation – Cung cấp phản hồi bằng natural language sử dụng một LLM.
+Bảng sau đây chứa một số ví dụ về các truy vấn và câu lệnh SQL tương ứng cùng với kết quả phản hồi được tạo bởi model.
+<img alt="blog1_1" src="../../../images/blog1_7.png"></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"><strong>Truy vấn Natural Language</strong></th>
+          <th style="text-align: left"><strong>Generate SQL Output</strong></th>
+          <th style="text-align: left"><strong>Kết quả phản hồi</strong></th>
+          <th style="text-align: left"><strong>Model</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Chúng ta có bao nhiêu khách hàng?</td>
+          <td style="text-align: left">SELECT COUNT(DISTINCT customer_id) AS num_customers FROM public.customer;</td>
+          <td style="text-align: left">We currently have 11 unique customers.</td>
+          <td style="text-align: left">Amazon Nova Lite</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Những khách hàng nào đã mua nhiều sản phẩm nhất?</td>
+          <td style="text-align: left">SELECT c.&ldquo;customer_name&rdquo;, COUNT(o.&ldquo;product_id&rdquo;) AS &ldquo;total_products_purchased&rdquo; FROM public.customer c INNER JOIN public.orders o ON c.&ldquo;customer_id&rdquo; = o.&ldquo;customer_id&rdquo; GROUP BY c.&ldquo;customer_name&rdquo; ORDER BY &ldquo;total_products_purchased&rdquo; DESC;</td>
+          <td style="text-align: left">Based on the data, the customers who have purchased the most products are Charlie Davis, Alice Brown, and John Doe, each having purchased 14 products. Following closely are Jane Smith, Grace Lee, and Bob Johnson, who have each purchased 13 products. Henry Taylor, Frank Miller, and Eva Wilson have each purchased 12 products, while Ivy Anderson has purchased 11 products.</td>
+          <td style="text-align: left">Amazon Nova Lite</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Những khách hàng nào đã mua nhiều hơn một sản phẩm đắt nhất?</td>
+          <td style="text-align: left">SELECT c.customer_name FROM public.customer c INNER JOIN public.orders o ON c.customer_id = o.customer_id INNER JOIN public.product p ON o.product_id = p.product_id WHERE p.price = (SELECT MAX(price) FROM public.product) GROUP BY c.customer_name HAVING COUNT(DISTINCT o.order_id);</td>
+          <td style="text-align: left">The customers who have purchased more than one number of the most expensive product are Grace Lee, Jane Smith, Alice Brown, and Eva Wilson.</td>
+          <td style="text-align: left">Amazon Nova Micro</td>
+      </tr>
+  </tbody>
+</table>
+<p>● Retrieval and response generation – Cung cấp phản hồi bằng natural language sử dụng một LLM.
+<img alt="blog1_1" src="../../../images/blog1_7.png"></p>
+<h3 id="dọn-dẹp">Dọn dẹp</h3>
+<p>Khi bạn đã sử dụng xong giải pháp này, hãy dọn dẹp các resources mà bạn đã tạo để tránh các chi phí phát sinh liên tục.</p>
+<h3 id="kết-luận">Kết luận</h3>
+<p>Trong bài viết này, chúng tôi đã trình bày cách cho phép truy vấn bằng natural language trên dữ liệu Aurora PostgreSQL sử dụng Amazon Bedrock Knowledge Bases thông qua zero-ETL integration với Amazon Redshift. Chúng tôi đã hướng dẫn cách thiết lập database, cấu hình zero-ETL integration, và thiết lập kết nối knowledge base để truy cập dữ liệu một cách liền mạch. Mặc dù giải pháp này cung cấp một cách hiệu quả để tương tác với dữ liệu bằng natural language, bạn nên xem xét các chi phí lưu trữ bổ sung trong Amazon Redshift khi triển khai kiến trúc này cho trường hợp sử dụng của mình.</p>
+<p>Hãy thử nghiệm giải pháp này và chia sẻ phản hồi của bạn trong phần comments.</p>
+<h3 id="về-tác-giả">Về tác giả</h3>
+<p><img alt="blog1_1" src="../../../images/tacgia1.png">
+Girish B là Senior Solutions Architect tại AWS India Pvt Ltd, có trụ sở tại Bengaluru. Girish làm việc với nhiều khách hàng ISV để thiết kế và kiến trúc các giải pháp sáng tạo trên AWS.</p>
+<p><img alt="blog1_1" src="../../../images/tacgia2.png">
+Dani Mitchell là Generative AI Specialist Solutions Architect tại AWS. Cô tập trung vào việc giúp các doanh nghiệp trên toàn thế giới tăng tốc hành trình Generative AI của họ với Amazon Bedrock.</p>
+
 
 
 
@@ -1853,19 +1910,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1765297162"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1765297162"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1765297162"></script>
-    <script src="../../../js/jquery.sticky.js?1765297162"></script>
-    <script src="../../../js/featherlight.min.js?1765297162"></script>
-    <script src="../../../js/highlight.pack.js?1765297162"></script>
+    <script src="../../../js/clipboard.min.js?1765305372"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1765305372"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1765305372"></script>
+    <script src="../../../js/jquery.sticky.js?1765305372"></script>
+    <script src="../../../js/featherlight.min.js?1765305372"></script>
+    <script src="../../../js/highlight.pack.js?1765305372"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1765297162"></script>
-    <script src="../../../js/learn.js?1765297162"></script>
-    <script src="../../../js/hugo-learn.js?1765297162"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1765305372"></script>
+    <script src="../../../js/learn.js?1765305372"></script>
+    <script src="../../../js/hugo-learn.js?1765305372"></script>
 
-    <link href="../../../mermaid/mermaid.css?1765297162" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1765297162"></script>
+    <link href="../../../mermaid/mermaid.css?1765305372" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1765305372"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
