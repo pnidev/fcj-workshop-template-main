@@ -13,13 +13,13 @@ chapter: false
 {{% /notice %}}
 
 ### Student Information:
-&emsp; **Full Name:** Nguyen Van A
+&emsp; **Full Name:** Pham Thi Yen Nhi
 
-&emsp; **Phone Number:** 0989888999 
+&emsp; **Phone Number:** 0901143200 
 
-&emsp; **Email:** Anguyenvan@gmail.com
+&emsp; **Email:** xpnhi023@gmail.com
 
-&emsp; **University:** Ho Chi Minh City University of Technology and Education
+&emsp; **University:** FPT University
 
 &emsp; **Major:** Information Technology
 
@@ -29,9 +29,9 @@ chapter: false
 
 &emsp; **Internship Position:** FCJ Cloud Intern
 
-&emsp; **Internship Duration:** From 12/08/2025 to 12/11/2025
+&emsp; **Internship Duration:** From 8/9/2025 to 9/12/2025
 
-![Your profile picture](/images/avatar.png)
+![Your profile picture](/images/avtcuatui.png)
 
 ### Report Content
 
