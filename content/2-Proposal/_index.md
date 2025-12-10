@@ -5,107 +5,182 @@ weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-# Serverless Multiplayer Game Backend
+# Serverless Multiplayer Game Backend  
 A Scalable AWS Solution for Real-Time Gaming & AI Avatar Processing
+
 ---
+
 ## 1. Executive Summary
-This project aims to build a robust, serverless backend infrastructure for a multiplayer Unity game. The system separates responsibilities across DevOps, Frontend (Unity), and Backend teams.
-AWS services are used to handle:
-- **User Authentication** → Amazon Cognito
-- **Gameplay Logic** → AWS Lambda
-- **Real-time Leaderboards** → API Gateway WebSocket + DynamoDB Streams
-- **AI Avatar Processing** → Container-based Lambda (OpenCV/MediaPipe)
-The architecture provides high availability, CI/CD automation, and seamless WebGL integration deployed on itch.io or CloudFront.
+
+This proposal outlines the development of a **fully serverless backend infrastructure** for a multiplayer Unity game.  
+The system is divided into three main responsibilities: DevOps, Backend, and Unity Frontend.
+
+AWS services will be used to provide:
+
+- **User Authentication** → Amazon Cognito  
+- **Gameplay & Business Logic** → AWS Lambda  
+- **Real-time Leaderboards** → API Gateway WebSocket + DynamoDB Streams  
+- **AI Avatar Generation** → Lambda Container (OpenCV/MediaPipe)
+
+This architecture ensures **scalability, fault tolerance, CI/CD automation**, and supports seamless deployment for WebGL via **itch.io or CloudFront**.
+
 ---
+
 ## 2. Problem Statement
+
 ### What’s the Problem?
-Multiplayer games require complex backend features such as authentication, real-time communication, and persistence. Traditional monolithic servers are costly, difficult to maintain, and do not scale effectively with player spikes.
-The game also requires **AI-driven avatar transformation**, which is computationally intensive.
+
+Multiplayer games require real-time backend capability, identity management, and persistent state storage.  
+Traditional server-based systems:
+
+- are expensive to run long-term  
+- scale poorly under heavy traffic spikes  
+- increase maintenance overhead  
+
+Additionally, this project requires **AI avatar transformation**, which demands high compute power.
+
 ### The Solution
-A fully serverless AWS architecture:
+
+A scalable serverless architecture using AWS services:
+
 - **Authentication:** Amazon Cognito (User Pools + Hosted UI)
-- **Logic & Compute:** Lambda (zip + container images from ECR)
-- **Real-time Interaction:** WebSocket API + DynamoDB Streams
-- **Storage:** Amazon S3 for avatars/assets
+- **Logic:** AWS Lambda (Zip + ECR container images)
+- **Storage:** S3 for avatars + DynamoDB for player metadata
+- **Realtime:** WebSocket API + DynamoDB Streams
+
 ### Benefits & ROI
-- **Cost Efficiency:** Pay-as-you-go (Lambda + DynamoDB)
-- **Scalability:** Auto-scales for player spikes
-- **Automation:** CI/CD pipeline for instant deployments
+
+- **Highly Cost Efficient** → Pay-per-execution, no idle servers  
+- **Auto Scaling** → Handles traffic bursts without manual scaling  
+- **CI/CD Ready** → Quick feature rollout through CodePipeline/CodeBuild  
+
 ---
+
 ## 3. Solution Architecture
-The system follows an event-driven microservices design. Unity interacts with AWS via REST (scores, shop) and WebSocket (live leaderboard). AI processing is handled by containerized Lambda functions.
+
+The system uses an event-driven microservice approach.  
+Unity communicates with backend via **REST APIs** and **WebSocket live streams**, while avatar processing runs via container-based Lambda.
+
 ### AWS Services Used
-- **Amazon Cognito** – User Pools, Hosted UI
-- **API Gateway (REST + WebSocket)**
-- **AWS Lambda (Zip + Container Image)**
-- **Amazon DynamoDB + Streams**
-- **Amazon S3**
-- **Amazon ECR**
--  **CodePipeline & CodeBuild**
+
+| Category | Services |
+|---|---|
+| Identity | Amazon Cognito |
+| API | API Gateway REST + WebSocket |
+| Compute | AWS Lambda (Zip + Container) |
+| Database | DynamoDB + Streams |
+| Storage | S3 |
+| Image Processing | ECR Container Lambda |
+| CI/CD | CodePipeline, CodeBuild |
+
 ### Component Design
+
 #### Frontend
-Unity WebGL build hosted on itch.io or CloudFront.
+
+Unity WebGL build deployed on **itch.io / CloudFront**.
+
 #### Data Flow
-1. User logs in → Cognito Token
-2. Unity calls REST API → Lambda → DynamoDB
-3. Avatar Upload → Presigned URL → S3 → Lambda (AI Container)
-4. Score updates → DynamoDB Stream → WebSocket broadcast
+
+1. User Login → Cognito Issues Token  
+2. Unity → REST API (Lambda → DynamoDB)  
+3. Avatar Upload → Presigned URL → S3  
+4. AI Avatar Processor → Lambda Container (OpenCV/MediaPipe)  
+5. Score Updates → DynamoDB Stream → WebSocket Broadcast Live  
+
 ---
+
 ## 4. Technical Implementation
+
 ### Implementation Phases
-1. **Infrastructure Setup (DevOps)** – Cognito, DynamoDB, S3, API Gateway
-2. **Backend Skeleton (BE)** – API specs, Postman, Lambda base code
-3. **Login Integration (FE)** – Unity AuthManager
-4. **Wiring & Streams (DevOps)** – API → Lambda, enable Streams
-5. **Gameplay Integration (FE)** – DataManager → REST APIs
-6. **End-to-End Testing** – Login, Shop, Leaderboards, Avatar
-7. **Deployment** – WebGL build + redirect URLs
-### Technical Requirements
-- **Frontend:** Unity (C#) – AwsConfig, AuthManager, DataManager, RealtimeManager
-- **Backend:** Node.js/Python for Lambdas, Docker for AI containers
-- **DevOps:** IAM roles, CloudFormation (optional), WAF (optional)
+
+1. **Infrastructure Setup (DevOps)**  
+   Cognito, DynamoDB, S3, API Gateway
+
+2. **Backend Skeleton (BE)**  
+   Lambda endpoints + Postman scripts + API routing
+
+3. **Frontend Login (FE)**  
+   AuthManager + Cognito integration
+
+4. **Integration Wiring (DevOps)**  
+   REST + WebSocket + DynamoDB Streams wiring
+
+5. **Gameplay API Integration (FE)**  
+   DataManager for score, money, progress, tasks
+
+6. **End-to-End Testing**  
+   Login → Game API → Leaderboard → Avatar
+
+7. **Deployment**  
+   Unity WebGL build + Allowed Redirect URLs
+
+### Tech Stack Requirements
+
+| Role | Stack |
+|---|---|
+| Frontend | Unity (C#), AwsConfig, AuthManager, DataManager, RealtimeManager |
+| Backend | Lambda NodeJS/Python, Docker Container (OpenCV/MediaPipe) |
+| DevOps | IAM, API Gateway, DynamoDB Streams, CodePipeline/Build |
+
 ---
+
 ## 5. Timeline & Milestones
-### Phase 1: Foundation (Days 1–3)
-- DevOps sets up Cognito, DynamoDB, S3, API Gateway.
-### Phase 2: Logic Development (Days 3–8)
-- Backend builds Lambda functions + Avatar AI Container
-- Frontend builds Login
-### Phase 3: Integration (Days 8–12)
-- DevOps connects Streams
-- Frontend integrates APIs
-### Phase 4: Testing & Launch (Days 13–15)
-- Test real-time leaderboard + avatar pipeline
-- Deploy WebGL
+
+| Phase | Duration | Deliverables |
+|---|---|---|
+| Foundation | Days 1–3 | Cognito, DynamoDB, S3, API Gateway |
+| Logic Development | Days 3–8 | Lambda API + Avatar Container + Unity Login |
+| Integration | Days 8–12 | Streams wired, APIs connected |
+| Testing & Launch | Days 13–15 | WebGL live deployment + Leaderboard & Avatar tests |
+
 ---
-## 6. Budget Estimation
-(Refer to AWS Pricing Calculator)
-### Infrastructure Costs
-- **Lambda:** Mostly Free Tier
-- **DynamoDB:** Free Tier (25GB)
-- **S3:** ~$0.023/GB
-- **CloudWatch:** ~$0.5–1/month
-- **ECR:** ~$0.10/GB
-**Total Estimated Cost:** **< $5/month** during development.
+
+## 6. Budget Estimation  
+*(Based on AWS Pricing Calculator)*
+
+| Resource | Cost |
+|---|---|
+| Lambda | Free Tier (low execution) |
+| DynamoDB | Free Tier (25GB) |
+| S3 Storage | $0.023/GB |
+| CloudWatch Logs | ~$0.5 - $1/month |
+| ECR Storage | ~$0.10/GB |
+
+**Estimated Total Cost < $5/month during development.**
+
 ---
+
 ## 7. Risk Assessment
+
 ### Risk Matrix
-- **Integration Complexity:** High impact / Medium probability
-- **Latency Issues:** Medium impact / Low probability
-- **Unexpected Costs:** Low impact / Low probability
-### Mitigation Strategies
-- Use Postman Mock Server for FE development
-- Placeholder leaderboard/task logic
-- CloudWatch Logs + alarms (errors > 10/min)
+
+| Risk | Impact | Probability |
+|---|---|---|
+| Integration complexity | High | Medium |
+| Latency during peak loads | Medium | Low |
+| Cost overrun | Low | Low |
+
+### Mitigation Strategy
+
+- Mock APIs using Postman during FE development  
+- Placeholder logic for shop & leaderboard  
+- CloudWatch alarm triggers on error spikes (>10/min)  
+
 ---
+
 ## 8. Expected Outcomes
-### Technical Improvements
-- Fully serverless game backend
-- Secure identity & player data
-- Real-time leaderboards
-- Automated AI avatar processing
-### Long-term Value
-- Reusable architecture for future games
-- Scales automatically without servers
-- Low operational cost
+
+### Technical Outcomes
+
+- Fully serverless backend infrastructure  
+- Secure identity & data persistence  
+- Real-time leaderboard support  
+- Automated avatar processing pipeline  
+
+### Long-Term Value
+
+- Reusable architecture for any future game titles  
+- Auto-scales without provisioning servers  
+- Extremely low operational cost  
+
 ---

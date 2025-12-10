@@ -5,131 +5,165 @@ weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-# Serverless Multiplayer Game Backend
+# Serverless Multiplayer Game Backend  
 Một giải pháp AWS có khả năng mở rộng cho game thời gian thực & xử lý AI Avatar
----
-## 1. Tóm tắt điều hành (Executive Summary)
-Mục tiêu của dự án là xây dựng một hạ tầng backend serverless vững chắc cho game multiplayer viết bằng Unity. Hệ thống tách rõ trách nhiệm giữa ba nhóm: DevOps, Frontend (Unity) và Backend.  
-Các dịch vụ AWS được sử dụng để xử lý:
-
-- **Xác thực người dùng (User Authentication)** → Amazon Cognito  
-- **Logic gameplay** → AWS Lambda  
-- **Leaderboard thời gian thực** → API Gateway WebSocket + DynamoDB Streams  
-- **Xử lý AI Avatar** → Lambda chạy bằng container (OpenCV/MediaPipe)  
-
-Kiến trúc này cung cấp tính sẵn sàng cao (high availability), tự động hóa CI/CD, và tích hợp WebGL mượt mà được deploy lên itch.io hoặc CloudFront.
 
 ---
-## 2. Vấn đề cần giải quyết (Problem Statement)
-### Vấn đề là gì?
-Game multiplayer cần nhiều tính năng backend phức tạp như: xác thực, giao tiếp thời gian thực, và lưu trữ/persist dữ liệu. Các server monolithic truyền thống thường tốn kém, khó bảo trì, và không scale tốt khi số lượng người chơi tăng đột biến.  
 
-Game này còn cần **xử lý AI cho việc biến đổi avatar**, vốn rất tốn tài nguyên tính toán.
+## 1. Tóm tắt điều hành
+Mục tiêu dự án là xây dựng **backend serverless cho game multiplayer Unity**, hướng đến khả năng mở rộng, độ ổn định cao và tự động hóa triển khai.  
+Hệ thống được phân chia theo vai trò rõ ràng:
 
-### Giải pháp
-Một kiến trúc AWS hoàn toàn **serverless**:
+- **DevOps** – thiết lập hạ tầng AWS & CI/CD  
+- **Backend (BE)** – xử lý API, dữ liệu gameplay và avatar  
+- **Frontend (Unity)** – tương tác Cognito + WebSocket + REST API
 
-- **Authentication:** Amazon Cognito (User Pools + Hosted UI)  
-- **Logic & Compute:** Lambda (zip + container images từ ECR)  
-- **Tương tác thời gian thực:** WebSocket API + DynamoDB Streams  
-- **Lưu trữ:** Amazon S3 cho avatar/asset  
+Các dịch vụ AWS chính được sử dụng:
 
-### Lợi ích & ROI
-- **Tiết kiệm chi phí:** Trả theo mức sử dụng (Lambda + DynamoDB)  
-- **Khả năng mở rộng:** Tự động scale khi có spike người chơi  
-- **Tự động hóa:** Pipeline CI/CD cho deploy nhanh, ít thao tác tay  
+- **Amazon Cognito** – đăng nhập & quản lý người dùng  
+- **AWS Lambda** – xử lý logic gameplay  
+- **API Gateway WebSocket + DynamoDB Streams** – leaderboard thời gian thực  
+- **Lambda Container (OpenCV/MediaPipe)** – xử lý avatar bằng AI  
+
+Kiến trúc này giúp giảm chi phí, tăng tốc phát triển và phù hợp cho triển khai WebGL trên itch.io/CloudFront.
 
 ---
-## 3. Kiến trúc giải pháp (Solution Architecture)
-Hệ thống tuân theo mô hình microservices hướng sự kiện (event-driven). Unity tương tác với AWS qua REST (điểm, shop) và WebSocket (leaderboard realtime). Xử lý AI được thực hiện bởi các Lambda dùng container.
+
+## 2. Vấn đề cần giải quyết
+### Vấn đề chính
+Game multiplayer luôn yêu cầu backend phức tạp gồm xác thực người chơi, đồng bộ dữ liệu, leaderboard tức thời và lưu trữ bền vững.  
+Nếu triển khai theo mô hình server truyền thống:
+
+- Chi phí máy chủ cao dù không có người chơi  
+- Cần đội ngũ duy trì vận hành 24/7  
+- Khó scale khi người chơi tăng đột biến  
+
+Ngoài ra, hệ thống cần xử lý **avatar AI (biến đổi khuôn mặt/hình ảnh)** – tác vụ nặng, yêu cầu compute linh hoạt.
+
+### Giải pháp đề xuất
+Xây dựng **kiến trúc serverless hoàn toàn trên AWS**, gồm:
+
+- Cognito quản lý đăng nhập & token identity  
+- Lambda xử lý gameplay & nghiệp vụ  
+- DynamoDB lưu state người chơi, kết hợp Streams để cập nhật realtime  
+- S3 + Lambda Container xử lý avatar bằng OpenCV/MediaPipe  
+
+### Lợi ích & Giá trị đầu tư (ROI)
+| Giá trị | Mô tả |
+|---|---|
+| Chi phí thấp | Chỉ trả khi có người dùng tương tác |
+| Mở rộng tự động | Tăng tải theo số lượng người chơi |
+| Dễ triển khai | CI/CD push code là cập nhật ngay |
+| Phát triển nhanh | BE/FE có thể làm song song, không phụ thuộc môi trường |
+
+---
+
+## 3. Kiến trúc giải pháp
+
+Mô hình serverless theo hướng sự kiện (event-driven microservices).  
+Unity gọi REST API khi gameplay diễn ra và kết nối WebSocket để nhận leaderboard realtime.  
+Avatar được upload qua Presigned URL, xử lý bằng Lambda Container.
 
 ### Các dịch vụ AWS sử dụng
-- **Amazon Cognito** – User Pools, Hosted UI  
-- **API Gateway (REST + WebSocket)**  
-- **AWS Lambda (Zip + Container Image)**  
-- **Amazon DynamoDB + Streams**  
-- **Amazon S3**  
-- **Amazon ECR**  
-- **CodePipeline & CodeBuild**  
 
-### Thiết kế các thành phần (Component Design)
-#### Frontend
-Build Unity WebGL được host trên itch.io hoặc CloudFront.
+| Thành phần | Dịch vụ |
+|---|---|
+| Identity | Amazon Cognito |
+| API Routing | API Gateway REST + WebSocket |
+| Compute | Lambda Zip + Lambda Container |
+| Database | DynamoDB + Streams |
+| Storage | S3 Avatar Storage |
+| AI Processing | ECR Container Image |
+| CI/CD | CodePipeline + CodeBuild |
 
-#### Luồng dữ liệu (Data Flow)
-1. Người dùng đăng nhập → nhận Cognito Token  
-2. Unity gọi REST API → Lambda → DynamoDB  
-3. Upload Avatar → Presigned URL → S3 → Lambda (AI Container)  
-4. Cập nhật điểm (Score updates) → DynamoDB Stream → broadcast qua WebSocket  
+### Luồng dữ liệu hoạt động
 
----
-## 4. Triển khai kỹ thuật (Technical Implementation)
-### Các giai đoạn triển khai (Implementation Phases)
-1. **Thiết lập hạ tầng (DevOps)** – Cognito, DynamoDB, S3, API Gateway  
-2. **Backend Skeleton (BE)** – Đặc tả API, Postman collection, code Lambda cơ bản  
-3. **Tích hợp đăng nhập (FE)** – Unity AuthManager  
-4. **Kết nối & Streams (DevOps)** – Nối API → Lambda, bật Streams  
-5. **Gameplay Integration (FE)** – DataManager → gọi REST APIs  
-6. **Kiểm thử End-to-End** – Login, Shop, Leaderboards, Avatar  
-7. **Triển khai (Deployment)** – Build WebGL + cấu hình redirect URLs  
-
-### Yêu cầu kỹ thuật (Technical Requirements)
-- **Frontend:** Unity (C#) – AwsConfig, AuthManager, DataManager, RealtimeManager  
-- **Backend:** Node.js/Python cho các Lambda, Docker cho AI containers  
-- **DevOps:** IAM roles, CloudFormation (tùy chọn), WAF (tùy chọn)  
+1. Người dùng đăng nhập → Nhận JWT Token từ Cognito  
+2. Unity → REST API → Lambda → DynamoDB ghi trạng thái  
+3. Avatar Upload → Presigned URL → Lưu vào S3  
+4. S3 Trigger / BE Trigger → Container Lambda xử lý ảnh  
+5. Điểm Score thay đổi → DynamoDB Streams → WebSocket broadcast realtime  
 
 ---
+
+## 4. Triển khai kỹ thuật
+
+### Quy trình triển khai theo giai đoạn
+
+| Giai đoạn | Mục tiêu |
+|---|---|
+| 1 – Setup hạ tầng | Cognito, DynamoDB, S3, API Gateway |
+| 2 – Backend Core | Lambda API + container xử lý avatar |
+| 3 – FE Authentication | AuthManager Unity + Signin UI |
+| 4 – Kết nối hệ thống | API → Lambda → Streams realtime |
+| 5 – Gameplay Integration | DataManager gọi REST/API WebSocket |
+| 6 – E2E Testing | Login → Điểm → Leaderboard → Avatar |
+| 7 – Deploy WebGL | Public WebGL build + domain redirect |
+
+### Yêu cầu kỹ thuật
+
+| Thành phần | Kỹ thuật yêu cầu |
+|---|---|
+| Frontend | Unity C#, AwsConfig, DataManager, WebSocket Client |
+| Backend | Lambda Python/Node, Docker, Avatar AI |
+| DevOps | IAM, VPC, API Gateway, CI/CD, CloudWatch |
+
+---
+
 ## 5. Timeline & Milestones
-### Giai đoạn 1: Nền tảng (Days 1–3)
-- DevOps thiết lập Cognito, DynamoDB, S3, API Gateway.
 
-### Giai đoạn 2: Phát triển logic (Days 3–8)
-- Backend xây dựng các Lambda functions + AI Container xử lý Avatar  
-- Frontend xây dựng chức năng Login
-
-### Giai đoạn 3: Tích hợp (Days 8–12)
-- DevOps kết nối Streams  
-- Frontend tích hợp các API
-
-### Giai đoạn 4: Kiểm thử & Launch (Days 13–15)
-- Kiểm thử leaderboard realtime + pipeline avatar  
-- Deploy bản WebGL
+| Giai đoạn | Thời gian | Kết quả |
+|---|---|---|
+| Phase 1 | Day 1–3 | Setup Cognito, S3, DynamoDB, API Gateway |
+| Phase 2 | Day 3–8 | Lambda APIs + Avatar AI container |
+| Phase 3 | Day 8–12 | FE tích hợp API + Streams realtime |
+| Phase 4 | Day 13–15 | Test & Deploy WebGL chính thức |
 
 ---
-## 6. Ước tính chi phí (Budget Estimation)
-*(Tham khảo AWS Pricing Calculator)*
 
-### Chi phí hạ tầng (Infrastructure Costs)
-- **Lambda:** Chủ yếu nằm trong Free Tier  
-- **DynamoDB:** Free Tier (25GB)  
-- **S3:** ~0,023 USD/GB  
-- **CloudWatch:** ~0,5–1 USD/tháng  
-- **ECR:** ~0,10 USD/GB  
+## 6. Ước tính chi phí vận hành
 
-**Tổng chi phí ước tính:** **< 5 USD/tháng** trong giai đoạn phát triển.
+| Dịch vụ | Chi phí dự kiến |
+|---|---|
+| Lambda | Hầu hết trong Free Tier |
+| DynamoDB | Free Tier 25GB |
+| S3 Storage | ~0.023 USD/GB |
+| CloudWatch Logs | ~0.5–1 USD/tháng |
+| ECR Storage | ~0.10 USD/GB |
 
----
-## 7. Đánh giá rủi ro (Risk Assessment)
-### Ma trận rủi ro (Risk Matrix)
-- **Độ phức tạp tích hợp:** Ảnh hưởng cao / Xác suất trung bình  
-- **Vấn đề độ trễ (latency):** Ảnh hưởng trung bình / Xác suất thấp  
-- **Chi phí phát sinh không mong muốn:** Ảnh hưởng thấp / Xác suất thấp  
-
-### Chiến lược giảm thiểu (Mitigation Strategies)
-- Dùng Postman Mock Server để FE có thể phát triển song song  
-- Dùng logic placeholder cho leaderboard/task khi BE chưa xong  
-- CloudWatch Logs + alarms (ví dụ lỗi > 10/min)  
+**Tổng chi phí phát triển ước tính < 5 USD/tháng**  
 
 ---
-## 8. Kết quả kỳ vọng (Expected Outcomes)
-### Cải tiến kỹ thuật
-- Backend cho game hoàn toàn serverless  
-- Bảo mật danh tính và dữ liệu người chơi  
-- Leaderboard thời gian thực  
-- Xử lý AI avatar tự động trên nền tảng Lambda/container  
 
-### Giá trị dài hạn (Long-term Value)
-- Kiến trúc tái sử dụng cho các game tương lai  
-- Tự động scale mà không cần quản lý server  
-- Chi phí vận hành thấp
+## 7. Đánh giá rủi ro
+
+| Rủi ro | Mức ảnh hưởng | Xác suất |
+|---|---|---|
+| Tích hợp phức tạp | Cao | Trung bình |
+| Độ trễ khi load cao | Trung bình | Thấp |
+| Chi phí phát sinh | Thấp | Thấp |
+
+### Cách giảm thiểu
+
+- FE dev bằng mock server khi API chưa sẵn  
+- Thay thế leaderboard logic bằng tạm thời nếu BE delay  
+- CloudWatch cảnh báo lỗi vượt 10 lần/phút  
+
+---
+
+## 8. Kết quả kỳ vọng
+
+### Kỹ thuật đạt được
+
+- Backend game full serverless  
+- Login + dữ liệu người chơi an toàn  
+- Leaderboard realtime bằng WebSocket  
+- Avatar AI xử lý tự động bằng container Lambda
+
+### Lợi ích dài hạn
+
+- Có thể tái sử dụng cho game tiếp theo  
+- Không cần quản lý server, tự mở rộng  
+- Chi phí thấp, dễ bảo trì  
+
 ---

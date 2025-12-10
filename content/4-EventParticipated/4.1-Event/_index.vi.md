@@ -1,135 +1,60 @@
 ---
-title: "Proposal"
+title: "Sư kiện 7"
 date: "`r Sys.Date()`"
-weight: 2
-chapter: true
-pre: " <b> 2. </b> "
+weight: 1
+chapter: false
+pre: " <b> 4.7. </b> "
 ---
-# Serverless Multiplayer Game Backend
-Một giải pháp AWS có khả năng mở rộng cho game thời gian thực & xử lý AI Avatar
----
-## 1. Tóm tắt điều hành (Executive Summary)
-Mục tiêu của dự án là xây dựng một hạ tầng backend serverless vững chắc cho game multiplayer viết bằng Unity. Hệ thống tách rõ trách nhiệm giữa ba nhóm: DevOps, Frontend (Unity) và Backend.  
-Các dịch vụ AWS được sử dụng để xử lý:
 
-- **Xác thực người dùng (User Authentication)** → Amazon Cognito  
-- **Logic gameplay** → AWS Lambda  
-- **Leaderboard thời gian thực** → API Gateway WebSocket + DynamoDB Streams  
-- **Xử lý AI Avatar** → Lambda chạy bằng container (OpenCV/MediaPipe)  
+# Báo Cáo Tóm Tắt: AWS Well-Architected Security Pillar (AWS Cloud Mastery Series #3)
 
-Kiến trúc này cung cấp tính sẵn sàng cao (high availability), tự động hóa CI/CD, và tích hợp WebGL mượt mà được deploy lên itch.io hoặc CloudFront.
+## Mục Tiêu Sự Kiện
+- Tìm hiểu sâu hơn về các dịch vụ IAM, IAM Identity Center, SSO, SCP  
+- Học về CloudTrail, GuardDuty, Security Hub và tự động hóa bằng EventBridge  
+- Bảo vệ hạ tầng: phân tách VPC, vị trí tài nguyên public vs private  
+- Tìm hiểu về Bảo vệ Dữ liệu và Incident Response
 
----
-## 2. Vấn đề cần giải quyết (Problem Statement)
-### Vấn đề là gì?
-Game multiplayer cần nhiều tính năng backend phức tạp như: xác thực, giao tiếp thời gian thực, và lưu trữ/persist dữ liệu. Các server monolithic truyền thống thường tốn kém, khó bảo trì, và không scale tốt khi số lượng người chơi tăng đột biến.  
+### Diễn Giả
+- **Le Vu Xuan Anh**: : Đội trưởng AWS Cloud Club HCMUTE – First Cloud AI Journey
+- **Tran Duc Anh**: Đội trưởng AWS Cloud Club SGU – First Cloud AI Journey 
+- **Tran Doan Cong Ly**: Đội trưởng AWS Cloud Club PTIT – First Cloud AI Journey 
+- **Danh Hoang Hieu Nghi**: Đội trưởng AWS Cloud Club HUFLIT – First Cloud AI Journey 
+- **Nguyen Tuan Thinh Cloud**: Thực tập sinh Kỹ sư Cloud – First Cloud AI Journey  
+- **Nguyen Do Thanh Dat**: Thực tập sinh Kỹ sư Cloud – First Cloud AI Journey     
+- **Mendel Grabski (Long)**: Cựu Head of Security & DevOps – Cloud Security Solution Architect  
+- **Tinh Truong**: AWS Community Builder – Kỹ sư Nền tảng tại TymeX
 
-Game này còn cần **xử lý AI cho việc biến đổi avatar**, vốn rất tốn tài nguyên tính toán.
+## Những Điểm Nổi Bật
 
-### Giải pháp
-Một kiến trúc AWS hoàn toàn **serverless**:
+### Identity & Access Management
+- Hiểu các khái niệm IAM cốt lõi: Users, Roles, Policies và lý do nên tránh long-term credentials.  
+- Khám phá IAM Identity Center (SSO) và Permission Sets.  
+- Nắm các thực hành bảo mật quan trọng: MFA, credential rotation, IAM Access Analyzer.  
 
-- **Authentication:** Amazon Cognito (User Pools + Hosted UI)  
-- **Logic & Compute:** Lambda (zip + container images từ ECR)  
-- **Tương tác thời gian thực:** WebSocket API + DynamoDB Streams  
-- **Lưu trữ:** Amazon S3 cho avatar/asset  
+### Detection
+- Hiểu CloudTrail cung cấp auditing đầy đủ trên multi-account.  
+- Tìm hiểu các dịch vụ phát hiện mối đe dọa: GuardDuty và Security Hub.  
+- Nắm logging ở nhiều lớp: VPC Flow Logs, ALB Logs, S3 Access Logs.  
+- Xây dựng cảnh báo và automation với EventBridge.  
 
-### Lợi ích & ROI
-- **Tiết kiệm chi phí:** Trả theo mức sử dụng (Lambda + DynamoDB)  
-- **Khả năng mở rộng:** Tự động scale khi có spike người chơi  
-- **Tự động hóa:** Pipeline CI/CD cho deploy nhanh, ít thao tác tay  
+### Infrastructure Protection
+- KMS: key policies, grants, rotation  
+- Mã hóa at-rest & in-transit: S3, EBS, RDS, DynamoDB  
+- Secrets Manager & Parameter Store — các mẫu xoay vòng secrets  
+- Phân loại dữ liệu và thiết lập access guardrails  
 
----
-## 3. Kiến trúc giải pháp (Solution Architecture)
-Hệ thống tuân theo mô hình microservices hướng sự kiện (event-driven). Unity tương tác với AWS qua REST (điểm, shop) và WebSocket (leaderboard realtime). Xử lý AI được thực hiện bởi các Lambda dùng container.
+### Incident Response
+- Vòng đời IR trên AWS  
+- Xử lý khi IAM key bị lộ  
+- Kiểm tra S3 public exposure  
+- Phát hiện malware trên EC2  
+- Snapshot, cô lập, thu thập bằng chứng  
+- Tự động phản hồi bằng Lambda/Step Functions  
 
-### Các dịch vụ AWS sử dụng
-- **Amazon Cognito** – User Pools, Hosted UI  
-- **API Gateway (REST + WebSocket)**  
-- **AWS Lambda (Zip + Container Image)**  
-- **Amazon DynamoDB + Streams**  
-- **Amazon S3**  
-- **Amazon ECR**  
-- **CodePipeline & CodeBuild**  
+## Trải Nghiệm Sự Kiện
+- Tham gia sự kiện **AWS Well-Architected Security Pillar**, mình không chỉ học thêm nhiều dịch vụ mới mà còn có cơ hội gặp gỡ các bạn từ nhiều trường đại học khác.  
+- Học thêm về các dịch vụ bảo mật, biết thêm về cách xử lý sự cố thực tế.  
+- Ngoài ra còn có cơ hội gặp chuyên gia nước ngoài đang làm việc tại AWS và lắng nghe chia sẻ kinh nghiệm của họ.  
 
-### Thiết kế các thành phần (Component Design)
-#### Frontend
-Build Unity WebGL được host trên itch.io hoặc CloudFront.
-
-#### Luồng dữ liệu (Data Flow)
-1. Người dùng đăng nhập → nhận Cognito Token  
-2. Unity gọi REST API → Lambda → DynamoDB  
-3. Upload Avatar → Presigned URL → S3 → Lambda (AI Container)  
-4. Cập nhật điểm (Score updates) → DynamoDB Stream → broadcast qua WebSocket  
-
----
-## 4. Triển khai kỹ thuật (Technical Implementation)
-### Các giai đoạn triển khai (Implementation Phases)
-1. **Thiết lập hạ tầng (DevOps)** – Cognito, DynamoDB, S3, API Gateway  
-2. **Backend Skeleton (BE)** – Đặc tả API, Postman collection, code Lambda cơ bản  
-3. **Tích hợp đăng nhập (FE)** – Unity AuthManager  
-4. **Kết nối & Streams (DevOps)** – Nối API → Lambda, bật Streams  
-5. **Gameplay Integration (FE)** – DataManager → gọi REST APIs  
-6. **Kiểm thử End-to-End** – Login, Shop, Leaderboards, Avatar  
-7. **Triển khai (Deployment)** – Build WebGL + cấu hình redirect URLs  
-
-### Yêu cầu kỹ thuật (Technical Requirements)
-- **Frontend:** Unity (C#) – AwsConfig, AuthManager, DataManager, RealtimeManager  
-- **Backend:** Node.js/Python cho các Lambda, Docker cho AI containers  
-- **DevOps:** IAM roles, CloudFormation (tùy chọn), WAF (tùy chọn)  
-
----
-## 5. Timeline & Milestones
-### Giai đoạn 1: Nền tảng (Days 1–3)
-- DevOps thiết lập Cognito, DynamoDB, S3, API Gateway.
-
-### Giai đoạn 2: Phát triển logic (Days 3–8)
-- Backend xây dựng các Lambda functions + AI Container xử lý Avatar  
-- Frontend xây dựng chức năng Login
-
-### Giai đoạn 3: Tích hợp (Days 8–12)
-- DevOps kết nối Streams  
-- Frontend tích hợp các API
-
-### Giai đoạn 4: Kiểm thử & Launch (Days 13–15)
-- Kiểm thử leaderboard realtime + pipeline avatar  
-- Deploy bản WebGL
-
----
-## 6. Ước tính chi phí (Budget Estimation)
-*(Tham khảo AWS Pricing Calculator)*
-
-### Chi phí hạ tầng (Infrastructure Costs)
-- **Lambda:** Chủ yếu nằm trong Free Tier  
-- **DynamoDB:** Free Tier (25GB)  
-- **S3:** ~0,023 USD/GB  
-- **CloudWatch:** ~0,5–1 USD/tháng  
-- **ECR:** ~0,10 USD/GB  
-
-**Tổng chi phí ước tính:** **< 5 USD/tháng** trong giai đoạn phát triển.
-
----
-## 7. Đánh giá rủi ro (Risk Assessment)
-### Ma trận rủi ro (Risk Matrix)
-- **Độ phức tạp tích hợp:** Ảnh hưởng cao / Xác suất trung bình  
-- **Vấn đề độ trễ (latency):** Ảnh hưởng trung bình / Xác suất thấp  
-- **Chi phí phát sinh không mong muốn:** Ảnh hưởng thấp / Xác suất thấp  
-
-### Chiến lược giảm thiểu (Mitigation Strategies)
-- Dùng Postman Mock Server để FE có thể phát triển song song  
-- Dùng logic placeholder cho leaderboard/task khi BE chưa xong  
-- CloudWatch Logs + alarms (ví dụ lỗi > 10/min)  
-
----
-## 8. Kết quả kỳ vọng (Expected Outcomes)
-### Cải tiến kỹ thuật
-- Backend cho game hoàn toàn serverless  
-- Bảo mật danh tính và dữ liệu người chơi  
-- Leaderboard thời gian thực  
-- Xử lý AI avatar tự động trên nền tảng Lambda/container  
-
-### Giá trị dài hạn (Long-term Value)
-- Kiến trúc tái sử dụng cho các game tương lai  
-- Tự động scale mà không cần quản lý server  
-- Chi phí vận hành thấp
----
+#### Một Số Hình Ảnh Tại Sự Kiện
+>Sự kiện giúp mình hiểu rõ hơn về bảo mật, có cơ hội tìm hiểu thêm về các sự cố và cách giải quyết. Đồng thời, mình cũng mong muốn tham gia CloudClub để có thêm nhiều trải nghiệm và kỷ niệm đẹp.

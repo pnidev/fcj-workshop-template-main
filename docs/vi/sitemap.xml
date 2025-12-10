@@ -101,6 +101,18 @@
                 href="https://thienluhoan.github.io/workshop-template/vi/4-eventparticipated/4.2-event/"
                 />
   </url><url>
+    <loc>https://thienluhoan.github.io/workshop-template/vi/4-eventparticipated/4.1-event/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://thienluhoan.github.io/workshop-template/4-eventparticipated/4.1-event/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://thienluhoan.github.io/workshop-template/vi/4-eventparticipated/4.1-event/"
+                />
+  </url><url>
     <loc>https://thienluhoan.github.io/workshop-template/vi/5-workshop/5.1-workshop-overview/5.1/</loc>
     <xhtml:link
                 rel="alternate"
@@ -136,18 +148,6 @@
                 rel="alternate"
                 hreflang="vi"
                 href="https://thienluhoan.github.io/workshop-template/vi/2-proposal/"
-                />
-  </url><url>
-    <loc>https://thienluhoan.github.io/workshop-template/vi/4-eventparticipated/4.1-event/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://thienluhoan.github.io/workshop-template/4-eventparticipated/4.1-event/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="https://thienluhoan.github.io/workshop-template/vi/4-eventparticipated/4.1-event/"
                 />
   </url><url>
     <loc>https://thienluhoan.github.io/workshop-template/vi/5-workshop/5.2-prerequiste/5.2/</loc>
@@ -309,6 +309,18 @@
                 href="https://thienluhoan.github.io/workshop-template/vi/5-workshop/5.6-clean-up/5.6/"
                 />
   </url><url>
+    <loc>https://thienluhoan.github.io/workshop-template/vi/5-workshop/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://thienluhoan.github.io/workshop-template/5-workshop/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://thienluhoan.github.io/workshop-template/vi/5-workshop/"
+                />
+  </url><url>
     <loc>https://thienluhoan.github.io/workshop-template/vi/1-worklog/1.6-week6/</loc>
     <lastmod>2025-10-14T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -422,18 +434,6 @@
                 rel="alternate"
                 hreflang="vi"
                 href="https://thienluhoan.github.io/workshop-template/vi/1-worklog/1.12-week12/"
-                />
-  </url><url>
-    <loc>https://thienluhoan.github.io/workshop-template/vi/5-workshop/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://thienluhoan.github.io/workshop-template/5-workshop/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="https://thienluhoan.github.io/workshop-template/vi/5-workshop/"
                 />
   </url><url>
     <loc>https://thienluhoan.github.io/workshop-template/vi/categories/</loc>
