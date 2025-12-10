@@ -1,4 +1,3 @@
-```markdown
 ---
 title: "Blog 2"
 date: "`r Sys.Date()`"

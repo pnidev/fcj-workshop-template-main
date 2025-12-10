@@ -41,18 +41,6 @@
                 href="https://thienluhoan.github.io/workshop-template/vi/1-worklog/"
                 />
   </url><url>
-    <loc>https://thienluhoan.github.io/workshop-template/vi/7-feedback/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://thienluhoan.github.io/workshop-template/7-feedback/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="https://thienluhoan.github.io/workshop-template/vi/7-feedback/"
-                />
-  </url><url>
     <loc>https://thienluhoan.github.io/workshop-template/vi/3-blogstranslated/3.1-blog1/</loc>
     <xhtml:link
                 rel="alternate"
@@ -160,18 +148,6 @@
                 rel="alternate"
                 hreflang="vi"
                 href="https://thienluhoan.github.io/workshop-template/vi/4-eventparticipated/4.1-event/"
-                />
-  </url><url>
-    <loc>https://thienluhoan.github.io/workshop-template/vi/6-self-evaluation/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://thienluhoan.github.io/workshop-template/6-self-evaluation/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="https://thienluhoan.github.io/workshop-template/vi/6-self-evaluation/"
                 />
   </url><url>
     <loc>https://thienluhoan.github.io/workshop-template/vi/5-workshop/5.2-prerequiste/5.2/</loc>
@@ -284,6 +260,18 @@
                 href="https://thienluhoan.github.io/workshop-template/vi/5-workshop/5.4-api-gateway-lambda/5.4.3-lambda/5.4.3/"
                 />
   </url><url>
+    <loc>https://thienluhoan.github.io/workshop-template/vi/4-eventparticipated/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://thienluhoan.github.io/workshop-template/4-eventparticipated/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://thienluhoan.github.io/workshop-template/vi/4-eventparticipated/"
+                />
+  </url><url>
     <loc>https://thienluhoan.github.io/workshop-template/vi/1-worklog/1.5-week5/</loc>
     <lastmod>2025-10-07T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -334,6 +322,18 @@
                 href="https://thienluhoan.github.io/workshop-template/vi/1-worklog/1.6-week6/"
                 />
   </url><url>
+    <loc>https://thienluhoan.github.io/workshop-template/vi/6-self-evaluation/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://thienluhoan.github.io/workshop-template/6-self-evaluation/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://thienluhoan.github.io/workshop-template/vi/6-self-evaluation/"
+                />
+  </url><url>
     <loc>https://thienluhoan.github.io/workshop-template/vi/1-worklog/1.7-week7/</loc>
     <lastmod>2025-10-21T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -345,6 +345,18 @@
                 rel="alternate"
                 hreflang="vi"
                 href="https://thienluhoan.github.io/workshop-template/vi/1-worklog/1.7-week7/"
+                />
+  </url><url>
+    <loc>https://thienluhoan.github.io/workshop-template/vi/7-feedback/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://thienluhoan.github.io/workshop-template/7-feedback/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://thienluhoan.github.io/workshop-template/vi/7-feedback/"
                 />
   </url><url>
     <loc>https://thienluhoan.github.io/workshop-template/vi/1-worklog/1.8-week8/</loc>
@@ -410,18 +422,6 @@
                 rel="alternate"
                 hreflang="vi"
                 href="https://thienluhoan.github.io/workshop-template/vi/1-worklog/1.12-week12/"
-                />
-  </url><url>
-    <loc>https://thienluhoan.github.io/workshop-template/vi/4-eventparticipated/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://thienluhoan.github.io/workshop-template/4-eventparticipated/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="https://thienluhoan.github.io/workshop-template/vi/4-eventparticipated/"
                 />
   </url><url>
     <loc>https://thienluhoan.github.io/workshop-template/vi/5-workshop/</loc>

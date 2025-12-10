@@ -2,7 +2,7 @@
 title: "Proposal"
 date: "`r Sys.Date()`"
 weight: 2
-chapter: false
+chapter: true
 pre: " <b> 2. </b> "
 ---
 # Serverless Multiplayer Game Backend
