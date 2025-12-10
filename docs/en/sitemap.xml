@@ -162,18 +162,6 @@
                 href="https://thienluhoan.github.io/workshop-template/2-proposal/"
                 />
   </url><url>
-    <loc>https://thienluhoan.github.io/workshop-template/1-worklog/1.12-week12/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="https://thienluhoan.github.io/workshop-template/vi/1-worklog/1.12-week12/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://thienluhoan.github.io/workshop-template/1-worklog/1.12-week12/"
-                />
-  </url><url>
     <loc>https://thienluhoan.github.io/workshop-template/1-worklog/1.3-week3/</loc>
     <lastmod>2025-09-23T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -433,6 +421,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://thienluhoan.github.io/workshop-template/1-worklog/1.11-week11/"
+                />
+  </url><url>
+    <loc>https://thienluhoan.github.io/workshop-template/1-worklog/1.12-week12/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://thienluhoan.github.io/workshop-template/vi/1-worklog/1.12-week12/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://thienluhoan.github.io/workshop-template/1-worklog/1.12-week12/"
                 />
   </url><url>
     <loc>https://thienluhoan.github.io/workshop-template/categories/</loc>

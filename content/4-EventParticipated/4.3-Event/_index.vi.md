@@ -3,7 +3,7 @@ title: "Event 1"
 date: "`r Sys.Date()`"
 weight: 1
 chapter: false
-pre: " <b> 4.7. </b> "
+pre: " <b> 4.3. </b> "
 ---
 ## Summary Report: AI/ML/GenAI on AWS (AWS Cloud Mastery Series #1)
 
