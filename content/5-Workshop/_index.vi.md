@@ -6,9 +6,6 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-
-
-
 # Tổng quan Workshop: Triển khai Backend cho Game
 
 
