@@ -84,13 +84,6 @@
 	"content": "Mục tiêu Workshop Trong workshop này, bạn sẽ học cách triển khai một hệ thống backend cho game bao gồm các thành phần:\nCognito: hệ thống đăng nhập với Username/Password và OAuth (Google). DynamoDB: lưu thông tin người chơi, tiến trình, và điểm số. S3: lưu trữ avatar người chơi, chỉ cho phép upload qua pre-signed URL. Lambda: triển khai các API backend, bao gồm Lambda ZIP thông thường và Lambda Container (OpenCV). API Gateway REST \u0026amp; WebSocket: phục vụ các route REST và realtime leaderboard. CI/CD (CodePipeline + CodeBuild): tự động build container và deploy Lambda. IAM Roles: phân quyền cho Lambda và CodeBuild. CloudWatch: logging, billing alarm, và error alarm cơ bản. Bạn sẽ triển khai từng bước các dịch vụ trên AWS, kiểm tra bằng CLI hoặc console, và cuối cùng thu thập các thông số cần thiết để bàn giao cho FE và BE.\nPhần Lab Cognito – Hệ thống login DynamoDB – Database chính S3 – Lưu avatar người chơi ECR – Container cho Avatar Processing Lambda – API backend API Gateway REST API Gateway WebSocket CI/CD – Backend IAM Roles Logging \u0026amp; Monitoring Yêu cầu Tài khoản AWS có quyền IAM đủ để tạo và cấu hình các dịch vụ trên. Sử dụng khu vực ap-southeast-2 cho workshop. "
 },
 {
-	"uri": "https://thienluhoan.github.io/workshop-template/vi/5-workshop/5.1-workshop-overview/5.1/",
-	"title": "Tổng quan Workshop",
-	"tags": [],
-	"description": "",
-	"content": "Mục tiêu Workshop Trong workshop này, bạn sẽ học cách triển khai một hệ thống backend cho game bao gồm các thành phần:\nCognito: hệ thống đăng nhập với Username/Password và OAuth (Google). DynamoDB: lưu thông tin người chơi, tiến trình, và điểm số. S3: lưu trữ avatar người chơi, chỉ cho phép upload qua pre-signed URL. Lambda: triển khai các API backend, bao gồm Lambda ZIP thông thường và Lambda Container (OpenCV). API Gateway REST \u0026amp; WebSocket: phục vụ các route REST và realtime leaderboard. CI/CD (CodePipeline + CodeBuild): tự động build container và deploy Lambda. IAM Roles: phân quyền cho Lambda và CodeBuild. CloudWatch: logging, billing alarm, và error alarm cơ bản. Bạn sẽ triển khai từng bước các dịch vụ trên AWS, kiểm tra bằng CLI hoặc console, và cuối cùng thu thập các thông số cần thiết để bàn giao cho FE và BE.\nPhần Lab Cognito – Hệ thống login DynamoDB – Database chính S3 – Lưu avatar người chơi ECR – Container cho Avatar Processing Lambda – API backend API Gateway REST API Gateway WebSocket CI/CD – Backend IAM Roles Logging \u0026amp; Monitoring Yêu cầu Tài khoản AWS có quyền IAM đủ để tạo và cấu hình các dịch vụ trên. Sử dụng khu vực ap-southeast-2 cho workshop. "
-},
-{
 	"uri": "https://thienluhoan.github.io/workshop-template/vi/1-worklog/1.2-week2/",
 	"title": "Week 2 Worklog",
 	"tags": [],
@@ -126,13 +119,6 @@
 	"content": "Quyền IAM Thêm chính sách IAM sau vào tài khoản người dùng của bạn để triển khai và quản lý dự án backend game:\n{ \u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;, \u0026#34;Statement\u0026#34;: [ { \u0026#34;Sid\u0026#34;: \u0026#34;GameProjectPermissions\u0026#34;, \u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;, \u0026#34;Action\u0026#34;: [ \u0026#34;lambda:*\u0026#34;, \u0026#34;apigateway:*\u0026#34;, \u0026#34;cognito-idp:*\u0026#34;, \u0026#34;dynamodb:*\u0026#34;, \u0026#34;s3:*\u0026#34;, \u0026#34;cloudwatch:*\u0026#34;, \u0026#34;iam:PassRole\u0026#34;, \u0026#34;codebuild:*\u0026#34;, \u0026#34;codepipeline:*\u0026#34;, \u0026#34;logs:*\u0026#34;, \u0026#34;sns:*\u0026#34; ], \u0026#34;Resource\u0026#34;: \u0026#34;*\u0026#34; } ] } "
 },
 {
-	"uri": "https://thienluhoan.github.io/workshop-template/vi/5-workshop/5.2-prerequiste/5.2/",
-	"title": "Yêu cầu trước",
-	"tags": [],
-	"description": "",
-	"content": "Quyền IAM Thêm chính sách IAM sau vào tài khoản người dùng của bạn để triển khai và quản lý dự án backend game:\n{ \u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;, \u0026#34;Statement\u0026#34;: [ { \u0026#34;Sid\u0026#34;: \u0026#34;GameProjectPermissions\u0026#34;, \u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;, \u0026#34;Action\u0026#34;: [ \u0026#34;lambda:*\u0026#34;, \u0026#34;apigateway:*\u0026#34;, \u0026#34;cognito-idp:*\u0026#34;, \u0026#34;dynamodb:*\u0026#34;, \u0026#34;s3:*\u0026#34;, \u0026#34;cloudwatch:*\u0026#34;, \u0026#34;iam:PassRole\u0026#34;, \u0026#34;codebuild:*\u0026#34;, \u0026#34;codepipeline:*\u0026#34;, \u0026#34;logs:*\u0026#34;, \u0026#34;sns:*\u0026#34; ], \u0026#34;Resource\u0026#34;: \u0026#34;*\u0026#34; } ] } "
-},
-{
 	"uri": "https://thienluhoan.github.io/workshop-template/vi/1-worklog/1.3-week3/",
 	"title": "Week 3 Worklog",
 	"tags": [],
@@ -145,20 +131,6 @@
 	"tags": [],
 	"description": "",
 	"content": " ⚠️ Lưu ý: Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng không sao chép nguyên văn cho bài báo cáo của bạn kể cả warning này.\nTại đây sẽ là phần liệt kê, giới thiệu các blogs mà các bạn đã dịch. Ví dụ:\nBlog 1 - Getting started with healthcare data lakes: Using microservices Blog này giải thích cách cho dữ liệu trong Aurora PostgreSQL trở nên “hỏi được bằng ngôn ngữ tự nhiên” thông qua Amazon Bedrock Knowledge Bases. Tác giả dùng zero-ETL để tự động sao chép dữ liệu từ Aurora sang Amazon Redshift, sau đó Bedrock Knowledge Bases chuyển câu hỏi tiếng Anh thành SQL, chạy trên Redshift và trả lời lại dưới dạng ngôn ngữ tự nhiên. Bài viết đi qua các bước: tạo schema sample (product, customer, orders), cấu hình zero-ETL, tạo knowledge base và thử hỏi kiểu “Chúng ta có bao nhiêu khách hàng?”.\nBlog 2 - \u0026hellip; Blog này nói về cách dùng Powertools for AWS Lambda (TypeScript) với Parser utility mới để validate payload của các event (SQS, EventBridge, v.v.) một cách chuẩn và dễ bảo trì. Tác giả dùng thư viện Zod để định nghĩa schema (ví dụ orderSchema), sau đó parser sẽ parse + validate event, có thể tự động trích detail/body qua “envelope”, và hỗ trợ safeParse để bạn tự xử lý lỗi, log và đo lường (metrics). Bài cũng minh họa cách mở rộng schema có sẵn, thêm business rule phức tạp bằng .refine().\nBlog 3 - \u0026hellip; BBlog này mô tả một kiến trúc multi-tenant, multi-account cho các use case Generative AI dùng Amazon Bedrock. Tác giả thiết kế một hub account làm cổng vào chung (ALB, Cognito, routing, authz) và nhiều spoke account tách biệt cho từng tenant, kết nối bằng AWS Transit Gateway. Hub nhận request, xác thực, route tới Lambda của tenant, Lambda assume role sang spoke và gọi Bedrock trong VPC riêng, giúp vừa tập trung quản lý (auth, routing) vừa giữ được isolation, quota, chi phí và policy riêng cho từng tenant.\n"
-},
-{
-	"uri": "https://thienluhoan.github.io/workshop-template/vi/5-workshop/5.3-dynamodb-s3/5.3.1-dynamodb/5.3.1/",
-	"title": "DynamoDB &amp; S3",
-	"tags": [],
-	"description": "",
-	"content": "5.3.1 DynamoDB – Database chính Trong dự án game, chúng ta sẽ dùng DynamoDB để lưu trữ thông tin người chơi, tiến trình chơi và điểm số.\nTạo 3 bảng sau:\nUserProfiles Partition Key (PK): userId UserProgress Partition Key (PK): userId Scores Partition Key (PK): gameArea Sort Key (SK): score Bật DynamoDB Stream\nStream type: NEW IMAGE DevOps cung cấp cho backend Stream ARN để Lambda có thể đọc sự kiện. "
-},
-{
-	"uri": "https://thienluhoan.github.io/workshop-template/vi/5-workshop/5.3-dynamodb-s3/5.3.2-s3/5.3.2/",
-	"title": "DynamoDB &amp; S3",
-	"tags": [],
-	"description": "",
-	"content": "5.3.2 S3 – Lưu avatar người chơi Tạo bucket S3:\nTên bucket: game-avatars Bật CORS: cho phép PUT, POST, GET từ mọi origin *. Lưu ý: chỉ cho phép upload qua presigned URL do backend tạo.\nLời kết phần 5.3 Bạn đã tạo xong 3 bảng DynamoDB và bucket S3. Các thông tin này sẽ được backend sử dụng để lưu trữ dữ liệu người chơi và avatar.\n"
 },
 {
 	"uri": "https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/5.4-api-gateway-lambda/5.4.3-lambda/",
@@ -180,27 +152,6 @@
 	"tags": [],
 	"description": "",
 	"content": "Mục tiêu tuần 4: Làm quen với dịch vụ lưu trữ tệp Amazon S3 và cách triển khai web tĩnh. Khám phá Amazon Lightsail như một mô hình đám mây đơn giản hơn EC2. Triển khai ứng dụng dạng container thông qua Lightsail Containers. Áp dụng thực hành triển khai ứng dụng thực tế trên môi trường cloud. Công việc thực hiện trong tuần: Ngày Nhiệm vụ Bắt đầu Hoàn thành Tài liệu 1 - Tìm hiểu kiến trúc Amazon S3 - Nắm bucket, object, storage class - Cấu hình S3 website hosting 30/09/2025 30/09/2025 https://000057.awsstudygroup.com/vi/ 2 - Thực hành hosting web tĩnh: + Upload file HTML/CSS/JS + Public access bucket + Chạy thử qua link S3 01/10/2025 01/10/2025 https://000057.awsstudygroup.com/vi/ 3 - Giới thiệu Amazon Lightsail - So sánh tính năng với EC2 - Tạo instance thử nghiệm 02/10/2025 02/10/2025 https://000045.awsstudygroup.com/vi/ 4 - Tìm hiểu Lightsail Containers - Cơ bản về container image và deployment - Triển khai app container đầu tiên 03/10/2025 03/10/2025 https://000046.awsstudygroup.com/vi/ 5 - Mini Lab tổng hợp: + Deploy website hoàn chỉnh bằng S3 + Deploy app container trên Lightsail + So sánh chi phí S3 / Lightsail / EC2 + Dọn dẹp resource tránh phát sinh phí 04/10/2025 04/10/2025 https://000057.awsstudygroup.com/vi/ Kết quả đạt được: Tự triển khai một web tĩnh trên S3, truy cập public thành công. Biết cách cấu hình bucket policy, cấp quyền và tối ưu public access. Hiểu cơ chế hoạt động của Lightsail và khi nào nên dùng thay EC2. Tự triển khai ứng dụng container trên Lightsail Containers. Đánh giá được sự khác biệt chi phí giữa S3, Lightsail và EC2 tuỳ nhu cầu dự án. Tổng kết: Kết thúc tuần 4, tôi có thể:\nHost website trên S3 và tự cấu hình permission, bucket policy. Triển khai ứng dụng nhanh bằng Lightsail thay vì cấu hình EC2 thủ công. Build \u0026amp; deploy ứng dụng container lên Lightsail Containers. Lựa chọn dịch vụ phù hợp giữa S3 – Lightsail – EC2 dựa theo độ phức tạp và chi phí. "
-},
-{
-	"uri": "https://thienluhoan.github.io/workshop-template/vi/5-workshop/5.4-api-gateway-lambda/5.4.1-rest-api/5.4.1/",
-	"title": "API Gateway &amp; Lambda",
-	"tags": [],
-	"description": "",
-	"content": "5.4.1 REST API Gateway Chúng ta sẽ tạo REST API để kết nối frontend với backend Lambda.\nCác route cần có:\nPOST /score GET /leaderboard GET /leaderboard/global POST /progress POST /unlock POST /task/complete POST /money/add POST /shop/buy POST /avatar/presign POST /avatar/update POST /avatar/process ← gọi Lambda container để xử lý ảnh Cấu hình:\nBật CORS cho tất cả route. Tạo JWT Authorizer trỏ đến Cognito. Gán mỗi route vào đúng Lambda function. "
-},
-{
-	"uri": "https://thienluhoan.github.io/workshop-template/vi/5-workshop/5.4-api-gateway-lambda/5.4.2-websocket-api/5.4.2/",
-	"title": "API Gateway &amp; Lambda",
-	"tags": [],
-	"description": "",
-	"content": "5.4.2 WebSocket API Gateway WebSocket API dùng cho real-time leaderboard.\nCác route:\n$connect → Lambda handler lưu connectionId $disconnect → Lambda handler xóa connectionId broadcast → Lambda handler gửi leaderboard Cấu hình:\nCho phép Lambda đọc connectionId trong DynamoDB. "
-},
-{
-	"uri": "https://thienluhoan.github.io/workshop-template/vi/5-workshop/5.4-api-gateway-lambda/5.4.3-lambda/5.4.3/",
-	"title": "API Gateway &amp; Lambda",
-	"tags": [],
-	"description": "",
-	"content": "5.4.3 Lambda Functions Chia làm 2 loại:\nLambda thường (ZIP) Dùng cho: score, leaderboard, money, progress, unlock, task. Tạo 1 Lambda function cho mỗi API route. Lambda container Dùng cho avatar AI vì có OpenCV + MediaPipe. Tên đề xuất: AvatarProcessingLambda Cách tạo: Lambda → Create Function → Container Image → chọn image từ ECR. DevOps chỉ tạo function, backend viết code xử lý. 5.4 Summary Bạn đã tạo xong:\nREST API cho backend WebSocket API cho leaderboard real-time Lambda functions (ZIP + Container) Các thông tin này được gửi cho backend để kết nối và triển khai.\n"
 },
 {
 	"uri": "https://thienluhoan.github.io/workshop-template/vi/4-eventparticipated/",
@@ -231,32 +182,11 @@
 	"content": "Mục tiêu Trong phần này, bạn sẽ cấu hình pipeline tự động để deploy backend, bao gồm cả Lambda thường và Lambda container (AvatarProcessingLambda). CI/CD giúp đảm bảo code luôn được triển khai với quyền IAM chính xác và dịch vụ luôn sẵn sàng.\n1. Chuẩn bị GitHub Repo của backend ECR Repository cho Lambda container (AvatarProcessingLambda) IAM Role cho CodeBuild với quyền: ECR push/pull, Lambda update 2. Tạo CodePipeline Vào AWS CodePipeline → Create Pipeline Đặt tên Pipeline (ví dụ: GameBackendPipeline) Chọn Source: GitHub repo backend Chọn Build: CodeBuild 3. Cấu hình CodeBuild Environment: Managed image + Docker Buildspec.yml ví dụ: version: 0.2 phases: pre_build: commands: - echo Logging in to Amazon ECR... - aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin 254670366571.dkr.ecr.ap-southeast-2.amazonaws.com build: commands: - echo Build Docker image... - docker build -t avatar-processing . - docker tag avatar-processing:latest 254670366571.dkr.ecr.ap-southeast-2.amazonaws.com/avatar-processing:latest post_build: commands: - echo Push Docker image to ECR... - docker push 254670366571.dkr.ecr.ap-southeast-2.amazonaws.com/avatar-processing:latest - echo Deploy to Lambda... - aws lambda update-function-code --function-name AvatarProcessingLambda --image-uri 254670366571.dkr.ecr.ap-southeast-2.amazonaws.com/avatar-processing:latest "
 },
 {
-	"uri": "https://thienluhoan.github.io/workshop-template/vi/5-workshop/5.5-ci-cd/5.5/",
-	"title": "CI/CD Deployment cho Backend",
-	"tags": [],
-	"description": "",
-	"content": "Mục tiêu Trong phần này, bạn sẽ cấu hình pipeline tự động để deploy backend, bao gồm cả Lambda thường và Lambda container (AvatarProcessingLambda). CI/CD giúp đảm bảo code luôn được triển khai với quyền IAM chính xác và dịch vụ luôn sẵn sàng.\n1. Chuẩn bị GitHub Repo của backend ECR Repository cho Lambda container (AvatarProcessingLambda) IAM Role cho CodeBuild với quyền: ECR push/pull, Lambda update 2. Tạo CodePipeline Vào AWS CodePipeline → Create Pipeline Đặt tên Pipeline (ví dụ: GameBackendPipeline) Chọn Source: GitHub repo backend Chọn Build: CodeBuild 3. Cấu hình CodeBuild Environment: Managed image + Docker Buildspec.yml ví dụ: version: 0.2 phases: pre_build: commands: - echo Logging in to Amazon ECR... - aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin 254670366571.dkr.ecr.ap-southeast-2.amazonaws.com build: commands: - echo Build Docker image... - docker build -t avatar-processing . - docker tag avatar-processing:latest 254670366571.dkr.ecr.ap-southeast-2.amazonaws.com/avatar-processing:latest post_build: commands: - echo Push Docker image to ECR... - docker push 254670366571.dkr.ecr.ap-southeast-2.amazonaws.com/avatar-processing:latest - echo Deploy to Lambda... - aws lambda update-function-code --function-name AvatarProcessingLambda --image-uri 254670366571.dkr.ecr.ap-southeast-2.amazonaws.com/avatar-processing:latest "
-},
-{
-	"uri": "https://thienluhoan.github.io/workshop-template/vi/5-workshop/5.6-clean-up/5.6/",
-	"title": "Dọn dẹp môi trường Workshop",
-	"tags": [],
-	"description": "",
-	"content": "5.6 Dọn dẹp môi trường Workshop Sau khi hoàn thành workshop, hãy dọn dẹp môi trường để tránh phát sinh chi phí không cần thiết trên AWS.\nXóa các Lambda Functions Vào AWS Lambda Console. Chọn tất cả các Lambda Functions bạn đã tạo: AvatarProcessingLambda BroadcastHandler ConnectHandler DisconnectHandler LeaderboardFunction MoneyFunction ProgressFunction ScoreFunction TaskFunction UnlockFunction Chọn Actions → Delete và xác nhận. Xóa API Gateway Vào API Gateway Console. Chọn REST API và WebSocket API của workshop. Chọn Actions → Delete API và xác nhận. Xóa S3 Buckets Vào S3 Console. Xóa tất cả các bucket đã tạo: game-avatars Các bucket phục vụ workshop (bucket-1, bucket-2,…) Lưu ý xóa toàn bộ nội dung bên trong trước khi xóa bucket. Xóa DynamoDB Tables Vào DynamoDB Console. Xóa các bảng: UserProfiles UserProgress Scores Xác nhận xóa từng bảng. Xóa IAM Roles Vào IAM Console → Roles. Xóa các Role đã tạo cho workshop: Lambda Execution Role CodeBuild Role Đảm bảo không còn Policy nào gắn với Role trước khi xóa. Xóa ECR Repositories Vào ECR Console. Xóa repository avatar-processing. Xác nhận xóa toàn bộ images trong repository. Xóa CodePipeline / CodeBuild Vào CodePipeline Console. Xóa pipeline workshop. Xóa project CodeBuild tương ứng. Kiểm tra chi phí Truy cập AWS Billing Console → Cost Explorer. Đảm bảo không còn dịch vụ nào phát sinh chi phí từ workshop. Nếu còn dịch vụ nào tồn tại, xóa theo hướng dẫn tương ứng. Tóm tắt Môi trường workshop đã được dọn dẹp hoàn toàn. Không còn Lambda, API, S3, DynamoDB, IAM Role, ECR, hay pipeline nào tồn tại. Chi phí phát sinh từ workshop đã được giảm về 0. "
-},
-{
 	"uri": "https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/",
 	"title": "Workshop",
 	"tags": [],
 	"description": "",
 	"content": "Tổng quan Workshop: Triển khai Backend cho Game Mục tiêu chung Workshop này hướng dẫn từng bước cách triển khai backend cho một dự án game (Unity/Web) trên AWS. Sau khi hoàn thành bạn sẽ có:\nHệ thống đăng nhập (Cognito) với username/password và OAuth (Google). Cơ sở dữ liệu NoSQL dùng DynamoDB cho profile, tiến trình và điểm số. Lưu trữ avatar người chơi trên S3, upload thông qua presigned URL. Các hàm xử lý (Lambda) dạng ZIP cho logic nhẹ và Container Lambda (OpenCV/MediaPipe) cho xử lý ảnh/AI. API Gateway (REST) cho các route gameplay; API Gateway (WebSocket) cho realtime leaderboard. CI/CD (CodePipeline + CodeBuild) để build container, đẩy lên ECR và cập nhật Lambda. Cấu hình IAM, CloudWatch (log, báo lỗi, alarm) và tuỳ chọn WAF. Phần Lab (structure) Cognito — xây hệ thống đăng nhập và authorizer JWT. DynamoDB — tạo các bảng: UserProfiles, UserProgress, Scores (PK/SK tương ứng). S3 — tạo bucket game-avatars, bật CORS, chỉ cho upload qua presigned URL. ECR — repo để chứa image phục vụ Container Lambda (AvatarProcessing). Lambda — tạo các function ZIP cho API và Container Lambda cho xử lý nặng. API Gateway (REST) — khai báo route, map mỗi route tới Lambda, bật CORS. API Gateway (WebSocket) — quản lý kết nối realtime cho leaderboard. CI/CD — thiết lập CodePipeline + CodeBuild để tự động build \u0026amp; deploy. IAM Roles — tạo role phù hợp cho các service (Lambda, CodeBuild, CodePipeline). Logging \u0026amp; Monitoring — CloudWatch log group, alarm billing \u0026amp; error. WAF — (tùy chọn) bảo vệ API. Chi tiết kỹ thuật quan trọng DynamoDB Bảng chính: UserProfiles (PK: userId) UserProgress (PK: userId) Scores (PK: gameArea, SK: score) Streams: NEW_IMAGE để Lambda/consumer xử lý event realtime. S3 Bucket: game-avatars CORS: cho phép PUT, POST, GET và origin * (cấu hình production cần thu hẹp). Uploads thực hiện bằng presigned URL do backend cấp. API \u0026amp; Lambda REST endpoints tiêu biểu: POST /score, GET /leaderboard, GET /leaderboard/global POST /progress, POST /unlock, POST /task/complete POST /money/add, POST /shop/buy POST /avatar/presign, POST /avatar/update, POST /avatar/process WebSocket routes: $connect, $disconnect, broadcast — lưu/xóa connectionId trong DynamoDB. Lambda types: ZIP Lambdas: scoring, progress, shop, leaderboard. Container Lambda: AvatarProcessingLambda (OpenCV + MediaPipe) — deployed từ ECR image. CI/CD (CodePipeline + CodeBuild) Source: GitHub repo Build: CodeBuild (Docker enabled) → build image → tag → push ECR → update Lambda image. Ví dụ buildspec.yml đã được cung cấp để đăng nhập ECR, build \u0026amp; push image, gọi aws lambda update-function-code. Nội dung Tổng quan về workshop Chuẩn bị Tạo DynamoDB và S3 Bucket Tạo API Gateway và Lambda 1 chút về CI/CD Dọn dẹp tài nguyên "
-},
-{
-	"uri": "https://thienluhoan.github.io/workshop-template/vi/5-workshop/",
-	"title": "Workshop",
-	"tags": [],
-	"description": "",
-	"content": " ⚠️ Lưu ý: Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng không sao chép nguyên văn cho bài báo cáo của bạn kể cả warning này.\nĐảm bảo truy cập Hybrid an toàn đến S3 bằng cách sử dụng VPC endpoint Tổng quan Workshop này hướng dẫn triển khai một hệ thống backend hoàn chỉnh cho game sử dụng các dịch vụ AWS.\nTrong quá trình thực hành, bạn sẽ làm việc với:\nCognito – xác thực tài khoản (Username/Password + Google OAuth) DynamoDB – lưu trữ hồ sơ người chơi, tiến độ và bảng điểm S3 – lưu avatar người chơi thông qua upload bằng Presigned URL Lambda (ZIP + Container) – xử lý API backend + pipeline AI Avatar (OpenCV) API Gateway REST / WebSocket – cung cấp API + realtime leaderboard CodeBuild + CodePipeline – CI/CD build container \u0026amp; deploy tự động IAM + CloudWatch – phân quyền, log, giám sát, cảnh báo lỗi Nội dung Tổng quan về workshop Chuẩn bị Truy cập đến S3 từ VPC Truy cập đến S3 từ TTDL On-premises VPC Endpoint Policies (làm thêm) Dọn dẹp tài nguyên "
 },
 {
 	"uri": "https://thienluhoan.github.io/workshop-template/vi/1-worklog/1.6-week6/",
@@ -327,6 +257,13 @@
 	"tags": [],
 	"description": "",
 	"content": "Week 12 Objectives: Hoàn thành capstone tổng hợp dựa trên toàn bộ kiến thức AWS đã học. Ôn tập và củng cố nội dung của 12 tuần đào tạo liên tục. Áp dụng best practices \u0026amp; Well-Architected Framework vào mô hình triển khai thật. Weekly Breakdown: Day Task Start Done References 1 Lên blueprint dự án: - Vẽ kiến trúc tổng quan - Xác định tài nguyên \u0026amp; dịch vụ AWS sử dụng - Viết checklist deploy 25/11/2025 25/11/2025 FCJ Architecture Notes 2 Triển khai phần nền tảng (Phase 1): - Xây VPC + Subnet + Routing - Tạo Auto Scaling Group \u0026amp; Load Balancer - Cấu hình RDS Multi-AZ 26/11/2025 26/11/2025 Previous Labs 3 Triển khai phần tối ưu (Phase 2): - Thêm Redis caching bằng ElastiCache - Tích hợp CDN với CloudFront + Route 53 - Tạo dashboard giám sát bằng CloudWatch 27/11/2025 27/11/2025 AWS Performance Guides 4 Tối ưu \u0026amp; hoàn thiện: - rà soát bảo mật, backup, chi phí - Cập nhật sơ đồ kiến trúc cuối - Ghi lại kinh nghiệm và lỗi đã gặp 28/11/2025 28/11/2025 Cost Optimization Reference 5 Tổng kết chương trình: + Làm đề luyện thi AWS SA Associate + Review các domain trong exam blueprint + Dọn tài nguyên AWS, tránh phát sinh phí + Chốt 12 tuần – tự thưởng bản thân 29/11/2025 29/11/2025 AWS Certification Prep Kit Week 12 Outcomes: Hoàn thiện capstone cloud architecture đa dịch vụ. Tự tổng hợp \u0026amp; kết nối hơn 3 tháng kiến thức AWS thành hệ thống thực tế. Nắm rõ quy trình thiết kế hệ thống bền vững, scale tốt, chi phí tối ưu. Viết xong tài liệu kiến trúc \u0026amp; hướng dẫn deploy chi tiết. Bắt đầu luyện thi chứng chỉ AWS chính thức. Final Reflection: Kết thúc tuần thứ 12:\nTôi đã có thể thiết kế \u0026amp; triển khai ứng dụng end-to-end trên AWS. Sử dụng thành thạo bộ dịch vụ: VPC, EC2, Auto Scaling, RDS, S3, CloudFront, Route 53… Biết áp dụng HA, DR, caching, multi-tier system vào thực tế dự án. Hiểu cách tối ưu tài nguyên, giám sát và đảm bảo chi phí hợp lý. Tự tin sẵn sàng tham gia hệ thống production thật sự trong tương lai. 12-Week Completion Summary: Dịch vụ đã học \u0026amp; thực hành: 15+ AWS Services\nNăng lực đạt được:\nAWS Account \u0026amp; Security Management (MFA, IAM, Budgets) Networking \u0026amp; Global Routing (VPC, Route 53, CloudFront) Compute (EC2, ASG, Lightsail, Elastic Load Balancer) Storage (S3, EBS) Databases (RDS, DynamoDB, Redis/ElastiCache) Monitoring (CloudWatch, AWS CLI) HA, Scalability \u0026amp; Fault Tolerance Design Windows Server \u0026amp; Directory Services on AWS CDN, Edge Functions \u0026amp; Performance Optimization Next Steps:\nPhát triển thêm dự án game tích hợp backend AWS Ôn thi AWS Solutions Architect Associate Học tiếp serverless stack: Lambda, API Gateway, Step Functions, EventBridge "
+},
+{
+	"uri": "https://thienluhoan.github.io/workshop-template/vi/5-workshop/",
+	"title": "5-Workshops",
+	"tags": [],
+	"description": "",
+	"content": ""
 },
 {
 	"uri": "https://thienluhoan.github.io/workshop-template/vi/categories/",
