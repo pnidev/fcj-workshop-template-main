@@ -1,0 +1,36 @@
+---
+title : "Yêu cầu trước"
+date :  "`r Sys.Date()`" 
+weight : 2
+chapter : false
+pre : " <b> 5.2. </b> "
+---
+
+#### Quyền IAM
+
+Thêm chính sách IAM sau vào tài khoản người dùng của bạn để triển khai và quản lý dự án backend game:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "GameProjectPermissions",
+      "Effect": "Allow",
+      "Action": [
+        "lambda:*",
+        "apigateway:*",
+        "cognito-idp:*",
+        "dynamodb:*",
+        "s3:*",
+        "cloudwatch:*",
+        "iam:PassRole",
+        "codebuild:*",
+        "codepipeline:*",
+        "logs:*",
+        "sns:*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

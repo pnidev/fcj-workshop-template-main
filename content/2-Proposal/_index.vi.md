@@ -63,6 +63,7 @@ Xây dựng **kiến trúc serverless hoàn toàn trên AWS**, gồm:
 Mô hình serverless theo hướng sự kiện (event-driven microservices).  
 Unity gọi REST API khi gameplay diễn ra và kết nối WebSocket để nhận leaderboard realtime.  
 Avatar được upload qua Presigned URL, xử lý bằng Lambda Container.
+![Game Architecture](/images/AWS.png)
 
 ### Các dịch vụ AWS sử dụng
 

@@ -1,0 +1,34 @@
+---
+title : "API Gateway REST"
+date : "`r Sys.Date()`"
+weight : 1
+chapter : false
+pre : " <b> 5.4.1 </b> "
+---
+
+#### REST API Gateway
+
+We will create a **REST API** to connect the frontend to backend Lambda functions.
+
+**Required routes:**
+
+- `POST /score`
+- `GET /leaderboard`
+- `GET /leaderboard/global`
+- `POST /progress`
+- `POST /unlock`
+- `POST /task/complete`
+- `POST /money/add`
+- `POST /shop/buy`
+- `POST /avatar/presign`
+- `POST /avatar/update`
+- `POST /avatar/process` ← calls the Lambda container for avatar processing
+
+**Configuration:**
+
+- Enable **CORS** for all routes.
+- Create a **JWT Authorizer** pointing to Cognito.
+- Attach each route to the correct Lambda function.
+
+
+

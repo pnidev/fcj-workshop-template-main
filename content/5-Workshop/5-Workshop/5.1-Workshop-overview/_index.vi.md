@@ -1,0 +1,40 @@
+---
+title : "Tổng quan Workshop"
+date :  "`r Sys.Date()`" 
+weight : 1
+chapter : false
+pre : " <b> 5.1. </b> "
+---
+
+#### Mục tiêu Workshop
+
+Trong workshop này, bạn sẽ học cách triển khai một hệ thống backend cho game bao gồm các thành phần:
+
+- **Cognito**: hệ thống đăng nhập với Username/Password và OAuth (Google).
+- **DynamoDB**: lưu thông tin người chơi, tiến trình, và điểm số.
+- **S3**: lưu trữ avatar người chơi, chỉ cho phép upload qua pre-signed URL.
+- **Lambda**: triển khai các API backend, bao gồm Lambda ZIP thông thường và Lambda Container (OpenCV).
+- **API Gateway REST & WebSocket**: phục vụ các route REST và realtime leaderboard.
+- **CI/CD (CodePipeline + CodeBuild)**: tự động build container và deploy Lambda.
+- **IAM Roles**: phân quyền cho Lambda và CodeBuild.
+- **CloudWatch**: logging, billing alarm, và error alarm cơ bản.
+
+Bạn sẽ triển khai từng bước các dịch vụ trên AWS, kiểm tra bằng CLI hoặc console, và cuối cùng thu thập các thông số cần thiết để bàn giao cho FE và BE.
+
+#### Phần Lab
+
+1. **Cognito – Hệ thống login**
+2. **DynamoDB – Database chính**
+3. **S3 – Lưu avatar người chơi**
+4. **ECR – Container cho Avatar Processing**
+5. **Lambda – API backend**
+6. **API Gateway REST**
+7. **API Gateway WebSocket**
+8. **CI/CD – Backend**
+9. **IAM Roles**
+10. **Logging & Monitoring**
+
+#### Yêu cầu
+
+- Tài khoản AWS có quyền IAM đủ để tạo và cấu hình các dịch vụ trên.
+- Sử dụng khu vực **ap-southeast-2** cho workshop.

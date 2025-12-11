@@ -3,7 +3,7 @@ title: "Event 4"
 date: "`r Sys.Date()`"
 weight: 1
 chapter: false
-pre: " <b> 4.4. </b> "
+pre: " <b> 4.2. </b> "
 ---
 # Summary Report: ​DevOps on AWS (AWS Cloud Mastery Series #2)
 

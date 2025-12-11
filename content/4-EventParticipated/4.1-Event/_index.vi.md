@@ -3,7 +3,7 @@ title: "Sư kiện 7"
 date: "`r Sys.Date()`"
 weight: 1
 chapter: false
-pre: " <b> 4.7. </b> "
+pre: " <b> 4.1. </b> "
 ---
 
 # Báo Cáo Tóm Tắt: AWS Well-Architected Security Pillar (AWS Cloud Mastery Series #3)
@@ -15,12 +15,7 @@ pre: " <b> 4.7. </b> "
 - Tìm hiểu về Bảo vệ Dữ liệu và Incident Response
 
 ### Diễn Giả
-- **Le Vu Xuan Anh**: : Đội trưởng AWS Cloud Club HCMUTE – First Cloud AI Journey
-- **Tran Duc Anh**: Đội trưởng AWS Cloud Club SGU – First Cloud AI Journey 
-- **Tran Doan Cong Ly**: Đội trưởng AWS Cloud Club PTIT – First Cloud AI Journey 
-- **Danh Hoang Hieu Nghi**: Đội trưởng AWS Cloud Club HUFLIT – First Cloud AI Journey 
-- **Nguyen Tuan Thinh Cloud**: Thực tập sinh Kỹ sư Cloud – First Cloud AI Journey  
-- **Nguyen Do Thanh Dat**: Thực tập sinh Kỹ sư Cloud – First Cloud AI Journey     
+
 - **Mendel Grabski (Long)**: Cựu Head of Security & DevOps – Cloud Security Solution Architect  
 - **Tinh Truong**: AWS Community Builder – Kỹ sư Nền tảng tại TymeX
 

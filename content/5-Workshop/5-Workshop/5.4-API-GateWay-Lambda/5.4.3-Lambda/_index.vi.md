@@ -1,0 +1,37 @@
+---
+title : "Lambda"
+date : "`r Sys.Date()`"
+weight : 3
+chapter : false
+pre : " <b> 5.4.3 </b> "
+---
+
+#### Lambda Functions
+
+Chia làm 2 loại:
+
+1. **Lambda thường (ZIP)**  
+ - Dùng cho: `score`, `leaderboard`, `money`, `progress`, `unlock`, `task`.
+ - Tạo 1 Lambda function cho mỗi API route.
+
+2. **Lambda container**  
+ - Dùng cho avatar AI vì có OpenCV + MediaPipe.
+ - Tên đề xuất: `AvatarProcessingLambda`
+ - Cách tạo: Lambda → Create Function → Container Image → chọn image từ ECR.
+ - DevOps chỉ tạo function, backend viết code xử lý.
+
+---
+
+#### Summary
+
+Bạn đã tạo xong:
+
+- REST API cho backend
+- WebSocket API cho leaderboard real-time
+- Lambda functions (ZIP + Container)  
+
+Các thông tin này được gửi cho backend để kết nối và triển khai.
+
+
+
+

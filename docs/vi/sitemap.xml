@@ -41,6 +41,18 @@
                 href="https://thienluhoan.github.io/workshop-template/vi/1-worklog/"
                 />
   </url><url>
+    <loc>https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/5.4-api-gateway-lambda/5.4.1-rest-api/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://thienluhoan.github.io/workshop-template/5-workshop/5-workshop/5.4-api-gateway-lambda/5.4.1-rest-api/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/5.4-api-gateway-lambda/5.4.1-rest-api/"
+                />
+  </url><url>
     <loc>https://thienluhoan.github.io/workshop-template/vi/3-blogstranslated/3.1-blog1/</loc>
     <xhtml:link
                 rel="alternate"
@@ -113,6 +125,30 @@
                 href="https://thienluhoan.github.io/workshop-template/vi/4-eventparticipated/4.1-event/"
                 />
   </url><url>
+    <loc>https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/5.3-dynamodb-s3/5.3.1-dynamodb/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://thienluhoan.github.io/workshop-template/5-workshop/5-workshop/5.3-dynamodb-s3/5.3.1-dynamodb/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/5.3-dynamodb-s3/5.3.1-dynamodb/"
+                />
+  </url><url>
+    <loc>https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/5.1-workshop-overview/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://thienluhoan.github.io/workshop-template/5-workshop/5-workshop/5.1-workshop-overview/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/5.1-workshop-overview/"
+                />
+  </url><url>
     <loc>https://thienluhoan.github.io/workshop-template/vi/5-workshop/5.1-workshop-overview/5.1/</loc>
     <xhtml:link
                 rel="alternate"
@@ -148,6 +184,42 @@
                 rel="alternate"
                 hreflang="vi"
                 href="https://thienluhoan.github.io/workshop-template/vi/2-proposal/"
+                />
+  </url><url>
+    <loc>https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/5.3-dynamodb-s3/5.3.2-s3/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://thienluhoan.github.io/workshop-template/5-workshop/5-workshop/5.3-dynamodb-s3/5.3.2-s3/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/5.3-dynamodb-s3/5.3.2-s3/"
+                />
+  </url><url>
+    <loc>https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/5.4-api-gateway-lambda/5.4.2-websocket-api/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://thienluhoan.github.io/workshop-template/5-workshop/5-workshop/5.4-api-gateway-lambda/5.4.2-websocket-api/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/5.4-api-gateway-lambda/5.4.2-websocket-api/"
+                />
+  </url><url>
+    <loc>https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/5.2-prerequiste/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://thienluhoan.github.io/workshop-template/5-workshop/5-workshop/5.2-prerequiste/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/5.2-prerequiste/"
                 />
   </url><url>
     <loc>https://thienluhoan.github.io/workshop-template/vi/5-workshop/5.2-prerequiste/5.2/</loc>
@@ -211,6 +283,30 @@
                 href="https://thienluhoan.github.io/workshop-template/vi/5-workshop/5.3-dynamodb-s3/5.3.2-s3/5.3.2/"
                 />
   </url><url>
+    <loc>https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/5.4-api-gateway-lambda/5.4.3-lambda/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://thienluhoan.github.io/workshop-template/5-workshop/5-workshop/5.4-api-gateway-lambda/5.4.3-lambda/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/5.4-api-gateway-lambda/5.4.3-lambda/"
+                />
+  </url><url>
+    <loc>https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/5.3-dynamodb-s3/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://thienluhoan.github.io/workshop-template/5-workshop/5-workshop/5.3-dynamodb-s3/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/5.3-dynamodb-s3/"
+                />
+  </url><url>
     <loc>https://thienluhoan.github.io/workshop-template/vi/1-worklog/1.4-week4/</loc>
     <lastmod>2025-09-30T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -272,6 +368,18 @@
                 href="https://thienluhoan.github.io/workshop-template/vi/4-eventparticipated/"
                 />
   </url><url>
+    <loc>https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/5.4-api-gateway-lambda/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://thienluhoan.github.io/workshop-template/5-workshop/5-workshop/5.4-api-gateway-lambda/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/5.4-api-gateway-lambda/"
+                />
+  </url><url>
     <loc>https://thienluhoan.github.io/workshop-template/vi/1-worklog/1.5-week5/</loc>
     <lastmod>2025-10-07T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -283,6 +391,18 @@
                 rel="alternate"
                 hreflang="vi"
                 href="https://thienluhoan.github.io/workshop-template/vi/1-worklog/1.5-week5/"
+                />
+  </url><url>
+    <loc>https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/5.5-ci-cd/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://thienluhoan.github.io/workshop-template/5-workshop/5-workshop/5.5-ci-cd/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/5.5-ci-cd/"
                 />
   </url><url>
     <loc>https://thienluhoan.github.io/workshop-template/vi/5-workshop/5.5-ci-cd/5.5/</loc>
@@ -309,6 +429,18 @@
                 href="https://thienluhoan.github.io/workshop-template/vi/5-workshop/5.6-clean-up/5.6/"
                 />
   </url><url>
+    <loc>https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://thienluhoan.github.io/workshop-template/5-workshop/5-workshop/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/"
+                />
+  </url><url>
     <loc>https://thienluhoan.github.io/workshop-template/vi/5-workshop/</loc>
     <xhtml:link
                 rel="alternate"
@@ -332,6 +464,18 @@
                 rel="alternate"
                 hreflang="vi"
                 href="https://thienluhoan.github.io/workshop-template/vi/1-worklog/1.6-week6/"
+                />
+  </url><url>
+    <loc>https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/5.6-cleanup/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://thienluhoan.github.io/workshop-template/5-workshop/5-workshop/5.6-cleanup/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://thienluhoan.github.io/workshop-template/vi/5-workshop/5-workshop/5.6-cleanup/"
                 />
   </url><url>
     <loc>https://thienluhoan.github.io/workshop-template/vi/6-self-evaluation/</loc>

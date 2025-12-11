@@ -60,6 +60,7 @@ A scalable serverless architecture using AWS services:
 
 The system uses an event-driven microservice approach.  
 Unity communicates with backend via **REST APIs** and **WebSocket live streams**, while avatar processing runs via container-based Lambda.
+![Game Architecture](/images/AWS.png)
 
 ### AWS Services Used
 
